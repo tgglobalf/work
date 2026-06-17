@@ -1,0 +1,574 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Инфографика для селлеров Wildberries и Ozon за 60 секунд. Создавай карточки товаров, фотосессии и видео обложки без дизайнера и фотошопа.">
+    <title>Инфографика для Wildberries и Ozon за 60 секунд | Битый Пиксель</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            color: #1a1a1a;
+            line-height: 1.6;
+            background: #fff;
+        }
+
+        /* HEADER STYLES */
+        header {
+            padding: 16px 60px;
+            background: white;
+            border-bottom: 1px solid #e8e8e8;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 20px;
+            font-weight: 700;
+            color: #6b5dd8;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .nav-center {
+            display: flex;
+            gap: 30px;
+            align-items: center;
+        }
+
+        .nav-item {
+            position: relative;
+        }
+
+        .nav-button {
+            background: none;
+            border: none;
+            color: #666;
+            font-size: 14px;
+            font-weight: 500;
+            cursor: pointer;
+            padding: 8px 12px;
+            border-radius: 6px;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .nav-button:hover {
+            background: #f5f3ff;
+            color: #6b5dd8;
+        }
+
+        .nav-dropdown {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background: white;
+            border: 1px solid #e8e8e8;
+            border-radius: 8px;
+            min-width: 200px;
+            display: flex;
+            flex-direction: column;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+            z-index: 1000;
+            margin-top: 8px;
+        }
+
+        .nav-dropdown a {
+            padding: 12px 16px;
+            color: #666;
+            text-decoration: none;
+            font-size: 13px;
+            border-bottom: 1px solid #f0f0f0;
+            transition: all 0.2s;
+        }
+
+        .nav-dropdown a:last-child {
+            border-bottom: none;
+        }
+
+        .nav-dropdown a:hover {
+            background: #f5f3ff;
+            color: #6b5dd8;
+            padding-left: 20px;
+        }
+
+        .nav-button {
+            cursor: pointer;
+        }
+
+        .nav-button.active {
+            color: #6b5dd8;
+            background: #f5f3ff;
+        }
+
+        .nav-right {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .btn-login {
+            background: linear-gradient(135deg, #6b5dd8 0%, #7d6de8 100%);
+            color: white;
+            padding: 10px 24px;
+            border: none;
+            border-radius: 8px;
+            font-weight: 600;
+            cursor: pointer;
+            font-size: 14px;
+            transition: all 0.3s;
+        }
+
+        .btn-login:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 16px rgba(107, 93, 216, 0.35);
+        }
+
+        /* HERO SECTION */
+        .hero {
+            background: linear-gradient(135deg, #f5f3ff 0%, #fff8f5 100%);
+            padding: 80px 60px;
+            min-height: 700px;
+            display: flex;
+            align-items: center;
+            gap: 60px;
+        }
+
+        .hero-content {
+            flex: 1;
+            max-width: 600px;
+        }
+
+        .hero-badge {
+            display: inline-block;
+            background: #e8f4ff;
+            color: #0066cc;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 11px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 20px;
+        }
+
+        .hero h1 {
+            font-size: 56px;
+            font-weight: 800;
+            margin-bottom: 20px;
+            line-height: 1.2;
+            color: #1a1a1a;
+        }
+
+        .hero h1 .accent {
+            color: #d4a5ff;
+            font-style: italic;
+            font-weight: 600;
+        }
+
+        .hero-subtitle {
+            font-size: 16px;
+            color: #555;
+            margin-bottom: 30px;
+            line-height: 1.6;
+        }
+
+        .hero-checklist {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            margin-bottom: 30px;
+        }
+
+        .checklist-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 14px;
+            color: #555;
+        }
+
+        .checklist-item:before {
+            content: "✓";
+            color: #6b5dd8;
+            font-weight: 700;
+            font-size: 16px;
+        }
+
+        .hero-cta {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, #6b5dd8 0%, #7d6de8 100%);
+            color: white;
+            border: none;
+            padding: 15px 35px;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            width: fit-content;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 24px rgba(107, 93, 216, 0.35);
+        }
+
+        .hero-social {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 13px;
+            color: #666;
+        }
+
+        .hero-avatars {
+            display: flex;
+            margin-right: 12px;
+        }
+
+        .avatar {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #6b5dd8 0%, #7d6de8 100%);
+            border: 2px solid white;
+            margin-right: -8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 11px;
+            font-weight: 700;
+        }
+
+        .stars {
+            color: #ffc107;
+            font-size: 14px;
+        }
+
+        /* HERO RIGHT SIDE - DEMO */
+        .hero-demo {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+
+        .demo-card {
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.12);
+            overflow: hidden;
+            max-width: 400px;
+            padding: 20px;
+        }
+
+        .demo-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+
+        .demo-time {
+            background: #e3f2fd;
+            color: #0066cc;
+            padding: 8px 12px;
+            border-radius: 8px;
+            font-size: 12px;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .demo-stats {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            align-items: flex-end;
+        }
+
+        .demo-stat {
+            text-align: right;
+            font-size: 12px;
+        }
+
+        .demo-stat-value {
+            font-size: 16px;
+            font-weight: 700;
+            color: #6b5dd8;
+        }
+
+        .demo-images {
+            display: flex;
+            gap: 12px;
+            margin-bottom: 15px;
+            height: 180px;
+        }
+
+        .demo-image {
+            flex: 1;
+            background: linear-gradient(135deg, #f5f3ff 0%, #e8deff 100%);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .demo-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .demo-image.placeholder {
+            background: linear-gradient(135deg, #ffd4e5 0%, #fff0e6 100%);
+            color: #999;
+            font-size: 12px;
+            text-align: center;
+        }
+
+        .demo-arrow {
+            position: absolute;
+            top: 50%;
+            right: -16px;
+            transform: translateY(-50%);
+            background: white;
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            z-index: 10;
+        }
+
+        .demo-footer {
+            display: flex;
+            gap: 8px;
+            font-size: 12px;
+        }
+
+        .demo-tag {
+            background: #f5f3ff;
+            color: #6b5dd8;
+            padding: 6px 10px;
+            border-radius: 6px;
+            font-weight: 500;
+        }
+
+        @media (max-width: 1200px) {
+            .hero {
+                flex-direction: column;
+                padding: 60px 30px;
+            }
+
+            .hero h1 {
+                font-size: 42px;
+            }
+
+            header {
+                padding: 16px 30px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-center {
+                display: none;
+            }
+
+            header {
+                flex-direction: column;
+                gap: 20px;
+            }
+
+            .hero {
+                padding: 40px 20px;
+            }
+
+            .hero h1 {
+                font-size: 32px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header>
+    <div class="logo">
+        <span>⚡</span> Битый Пиксель
+    </div>
+
+    <nav class="nav-center">
+        <!-- ИНСТРУМЕНТЫ -->
+        <div class="nav-item">
+            <button class="nav-button">Инструменты <span>▼</span></button>
+            <div class="nav-dropdown">
+                <a href="#infografika">Инфографика</a>
+                <a href="#kartochka">Карточка под ключ</a>
+                <a href="#ai-foto">ИИ-фото</a>
+                <a href="#fotosessiya">Фотосессия</a>
+                <a href="#video-oblozhka">Видео обложка</a>
+                <a href="#rich-content">Рич-контент</a>
+                <a href="#seo-teksty">SEO-тексты</a>
+            </div>
+        </div>
+
+        <!-- ДЛЯ КОГО -->
+        <div class="nav-item">
+            <button class="nav-button">Для кого <span>▼</span></button>
+            <div class="nav-dropdown">
+                <a href="#wildberries">Wildberries</a>
+                <a href="#ozon">Ozon</a>
+                <a href="#dropshipping">Дропшиппинг</a>
+                <a href="#small-business">Малый бизнес</a>
+                <a href="#fashion">Fashion-бренды</a>
+            </div>
+        </div>
+
+        <!-- ИНФОРМАЦИЯ -->
+        <div class="nav-item">
+            <button class="nav-button">Информация <span>▼</span></button>
+            <div class="nav-dropdown">
+                <a href="#tarifы">Тарифы</a>
+                <a href="#cases">Кейсы</a>
+                <a href="#faq">FAQ</a>
+                <a href="#about">О нас</a>
+                <a href="#partners">Партнёрам</a>
+            </div>
+        </div>
+
+        <!-- БЛОГ -->
+        <div class="nav-item">
+            <a href="#blog" style="color: #666; text-decoration: none; font-size: 14px; font-weight: 500;">Блог</a>
+        </div>
+    </nav>
+
+    <div class="nav-right">
+        <button class="btn-login">Войти</button>
+    </div>
+</header>
+
+<!-- HERO SECTION -->
+<section class="hero">
+    <!-- LEFT CONTENT -->
+    <div class="hero-content">
+        <div class="hero-badge">● инфографика для селлеров Wildberries и Ozon</div>
+
+        <h1>AI - генерация <span class="accent">карточек товаров</span> за 60 секунд</h1>
+
+        <p class="hero-subtitle">
+            Битый пиксель работает за дизайнера и целую фотостудию. Создавай обложки, фотосессии и фотоворонки уровня профи.
+        </p>
+
+        <div class="hero-checklist">
+            <div class="checklist-item">12 шаблонов</div>
+            <div class="checklist-item">8200+ дешевле дизайнера</div>
+            <div class="checklist-item">Правки без фотошопа</div>
+        </div>
+
+        <div class="hero-cta">
+            <button class="btn-primary">Создать карточку бесплатно</button>
+
+            <div class="hero-social">
+                <div class="hero-avatars">
+                    <div class="avatar">👤</div>
+                    <div class="avatar">👤</div>
+                    <div class="avatar">👤</div>
+                    <div class="avatar">👤</div>
+                </div>
+                <div class="stars">★★★★★</div>
+                <span>Уже <strong>1 000+</strong> довольных селлеров</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- RIGHT DEMO -->
+    <div class="hero-demo">
+        <div class="demo-card">
+            <div class="demo-header">
+                <div class="demo-time">⚡ 60 секунд</div>
+                <div class="demo-stats">
+                    <div class="demo-stat">
+                        от 19 ₽<br>
+                        <span style="font-size: 11px; color: #999;">за карточку</span>
+                    </div>
+                    <div class="demo-stat">
+                        <span class="demo-stat-value">+38% CTR</span>
+                        <span style="font-size: 11px; color: #999;">после редизайна</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="demo-images">
+                <div class="demo-image placeholder">
+                    [Фото до]
+                </div>
+                <div class="demo-arrow">→</div>
+                <div class="demo-image placeholder">
+                    [Готовая карточка]
+                </div>
+            </div>
+
+            <div class="demo-footer">
+                <span class="demo-tag">📊 Инфографика</span>
+                <span class="demo-tag">✨ Профессионально</span>
+            </div>
+        </div>
+    </div>
+</section>
+
+<script>
+    // Dropdown меню управление
+    const navButtons = document.querySelectorAll('.nav-button');
+    
+    navButtons.forEach(button => {
+        // Если это кнопка с меню (не простая ссылка)
+        const parent = button.closest('.nav-item');
+        const dropdown = parent.querySelector('.nav-dropdown');
+        
+        if (dropdown) {
+            // По умолчанию все меню раскрыты
+            button.classList.add('active');
+            
+            button.addEventListener('click', (e) => {
+                e.preventDefault();
+                
+                // Переключаем видимость
+                if (dropdown.style.display === 'none') {
+                    dropdown.style.display = 'flex';
+                    button.classList.add('active');
+                } else {
+                    dropdown.style.display = 'none';
+                    button.classList.remove('active');
+                }
+            });
+        }
+    });
+</script>
+
+</body>
+</html>

@@ -1,0 +1,773 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Генератор инфографики для маркетплейсов | Bitiy Pixel</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            line-height: 1.6;
+            color: #1a1a1a;
+            background: #ffffff;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* ===== HERO SECTION ===== */
+        header {
+            padding: 80px 0 60px;
+            border-bottom: 1px solid #e5e5e5;
+            margin-bottom: 80px;
+        }
+
+        .logo {
+            font-size: 14px;
+            font-weight: 600;
+            color: #1a1a1a;
+            margin-bottom: 50px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        h1 {
+            font-size: 56px;
+            font-weight: 600;
+            line-height: 1.15;
+            margin-bottom: 32px;
+            color: #1a1a1a;
+        }
+
+        .hero-subtitle {
+            font-size: 18px;
+            line-height: 1.7;
+            color: #555555;
+            margin-bottom: 32px;
+        }
+
+        .hero-highlight {
+            background: #f5f5f5;
+            border-left: 4px solid #1a1a1a;
+            padding: 20px 24px;
+            margin: 32px 0;
+            border-radius: 4px;
+        }
+
+        .hero-highlight strong {
+            font-weight: 600;
+            display: block;
+            margin-bottom: 8px;
+            color: #1a1a1a;
+        }
+
+        .hero-highlight p {
+            font-size: 16px;
+            line-height: 1.6;
+            color: #666666;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 16px;
+            margin-top: 40px;
+            flex-wrap: wrap;
+        }
+
+        button {
+            padding: 14px 32px;
+            font-size: 16px;
+            border-radius: 6px;
+            border: 2px solid #1a1a1a;
+            background: #ffffff;
+            color: #1a1a1a;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.2s;
+            text-align: center;
+        }
+
+        button.primary {
+            background: #1a1a1a;
+            color: #ffffff;
+        }
+
+        button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+
+        /* ===== SECTIONS ===== */
+        section {
+            margin-bottom: 100px;
+        }
+
+        h2 {
+            font-size: 40px;
+            font-weight: 600;
+            margin-bottom: 24px;
+            color: #1a1a1a;
+        }
+
+        .section-subtitle {
+            font-size: 18px;
+            color: #555555;
+            margin-bottom: 40px;
+            line-height: 1.7;
+        }
+
+        /* ===== HOW IT WORKS ===== */
+        .steps-grid {
+            display: grid;
+            gap: 48px;
+            margin-bottom: 50px;
+        }
+
+        .step-card {
+            display: grid;
+            grid-template-columns: 60px 1fr;
+            gap: 24px;
+        }
+
+        .step-number {
+            width: 60px;
+            height: 60px;
+            background: #f0f0f0;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 28px;
+            font-weight: 700;
+            color: #1a1a1a;
+            flex-shrink: 0;
+        }
+
+        .step-content h3 {
+            font-size: 20px;
+            font-weight: 600;
+            margin-bottom: 12px;
+            color: #1a1a1a;
+        }
+
+        .step-content p {
+            color: #666666;
+            font-size: 16px;
+            line-height: 1.6;
+        }
+
+        .step-content .problem-list {
+            margin-top: 16px;
+            padding: 16px;
+            background: #f9f9f9;
+            border-radius: 6px;
+            font-size: 14px;
+            color: #555555;
+            line-height: 1.6;
+        }
+
+        /* ===== BEFORE-AFTER ===== */
+        .before-after-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 24px;
+            margin-bottom: 40px;
+        }
+
+        .before-after-item {
+            background: #f5f5f5;
+            border-radius: 8px;
+            overflow: hidden;
+            aspect-ratio: 9/12;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 14px;
+            color: #999;
+            font-weight: 500;
+        }
+
+        .before-after-label {
+            text-align: center;
+            margin-top: 12px;
+            font-weight: 600;
+            font-size: 14px;
+            color: #1a1a1a;
+        }
+
+        /* ===== PRICING ===== */
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+            margin-bottom: 50px;
+        }
+
+        .pricing-card {
+            background: #f5f5f5;
+            padding: 40px;
+            border-radius: 12px;
+            border: 1px solid #e5e5e5;
+        }
+
+        .pricing-card.featured {
+            background: #1a1a1a;
+            color: #ffffff;
+            border: 2px solid #1a1a1a;
+            padding: 50px 40px;
+            transform: scale(1.05);
+        }
+
+        .pricing-card.featured .pricing-label,
+        .pricing-card.featured h3 {
+            color: #ffffff;
+        }
+
+        .pricing-label {
+            font-size: 12px;
+            font-weight: 600;
+            color: #666666;
+            text-transform: uppercase;
+            margin-bottom: 12px;
+            letter-spacing: 0.5px;
+        }
+
+        .pricing-card h3 {
+            font-size: 28px;
+            font-weight: 600;
+            margin-bottom: 16px;
+            color: #1a1a1a;
+        }
+
+        .pricing-price {
+            font-size: 40px;
+            font-weight: 700;
+            margin-bottom: 4px;
+            color: #1a1a1a;
+        }
+
+        .pricing-card.featured .pricing-price {
+            color: #ffffff;
+        }
+
+        .pricing-period {
+            font-size: 14px;
+            color: #666666;
+            margin-bottom: 24px;
+        }
+
+        .pricing-card.featured .pricing-period {
+            color: #cccccc;
+        }
+
+        .pricing-description {
+            font-size: 14px;
+            line-height: 1.6;
+            color: #666666;
+            margin-bottom: 32px;
+        }
+
+        .pricing-card.featured .pricing-description {
+            color: #e0e0e0;
+        }
+
+        .pricing-card ul {
+            list-style: none;
+            margin-bottom: 32px;
+        }
+
+        .pricing-card li {
+            font-size: 14px;
+            line-height: 1.8;
+            color: #666666;
+            padding: 8px 0;
+            border-bottom: 1px solid #e5e5e5;
+        }
+
+        .pricing-card.featured li {
+            color: #e0e0e0;
+            border-bottom-color: rgba(255,255,255,0.1);
+        }
+
+        /* ===== TABLE ===== */
+        .table-wrapper {
+            overflow-x: auto;
+            margin-bottom: 40px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        table thead {
+            background: #f0f0f0;
+        }
+
+        table th {
+            padding: 16px;
+            text-align: left;
+            font-weight: 600;
+            color: #1a1a1a;
+            border-bottom: 2px solid #e5e5e5;
+        }
+
+        table td {
+            padding: 16px;
+            color: #666666;
+            border-bottom: 1px solid #e5e5e5;
+        }
+
+        table tr:hover {
+            background: #f9f9f9;
+        }
+
+        /* ===== BENEFITS ===== */
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 40px;
+        }
+
+        .benefit-card {
+            padding: 24px 0;
+        }
+
+        .benefit-icon {
+            font-size: 40px;
+            margin-bottom: 16px;
+            display: block;
+        }
+
+        .benefit-card h3 {
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 12px;
+            color: #1a1a1a;
+        }
+
+        .benefit-card p {
+            font-size: 14px;
+            line-height: 1.6;
+            color: #666666;
+        }
+
+        /* ===== FAQ ===== */
+        .faq-grid {
+            display: grid;
+            gap: 24px;
+        }
+
+        .faq-item {
+            background: #f5f5f5;
+            padding: 24px;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .faq-item:hover {
+            background: #ebebeb;
+        }
+
+        .faq-item.open {
+            background: #1a1a1a;
+            color: #ffffff;
+        }
+
+        .faq-question {
+            font-weight: 600;
+            font-size: 16px;
+            margin-bottom: 12px;
+            color: #1a1a1a;
+        }
+
+        .faq-item.open .faq-question {
+            color: #ffffff;
+        }
+
+        .faq-answer {
+            display: none;
+            font-size: 14px;
+            line-height: 1.6;
+            color: #666666;
+        }
+
+        .faq-item.open .faq-answer {
+            display: block;
+            color: #e0e0e0;
+        }
+
+        /* ===== CTA SECTION ===== */
+        .cta-section {
+            background: #f5f5f5;
+            padding: 60px;
+            border-radius: 12px;
+            text-align: center;
+        }
+
+        .artifact-label {
+            display: inline-block;
+            background: #ffffff;
+            border: 1px solid #e5e5e5;
+            padding: 8px 16px;
+            border-radius: 4px;
+            font-size: 12px;
+            font-weight: 600;
+            text-transform: uppercase;
+            color: #666666;
+            margin-bottom: 32px;
+            letter-spacing: 0.5px;
+        }
+
+        .cta-section h2 {
+            margin-bottom: 20px;
+        }
+
+        .cta-section p {
+            font-size: 18px;
+            line-height: 1.7;
+            color: #555555;
+            margin-bottom: 32px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* ===== FOOTER ===== */
+        footer {
+            padding: 40px 0;
+            border-top: 1px solid #e5e5e5;
+            text-align: center;
+            font-size: 14px;
+            color: #999999;
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 40px;
+            }
+
+            h2 {
+                font-size: 28px;
+            }
+
+            .pricing-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .pricing-card.featured {
+                transform: scale(1);
+            }
+
+            .benefits-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .before-after-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- ===== HEADER ===== -->
+        <header>
+            <div class="logo">Bitiy Pixel</div>
+            <h1>Создавайте продающие карточки товаров за секунды</h1>
+            <p class="hero-subtitle">Превращайте обычные фото в профессиональные карточки для маркетплейсов. Экономьте время и деньги на дизайне — AI разберётся с визуалом, а вы фокусируйтесь на продажах.</p>
+
+            <div class="hero-highlight">
+                <strong>Почему это работает?</strong>
+                <p>На маркетплейцах покупатель принимает решение за 3 секунды. Красивая карточка товара помогает выделить товар, показать ключевые характеристики и повысить конверсию. Наш генератор делает это в 10 раз быстрее, чем вручную.</p>
+            </div>
+
+            <div class="hero-buttons">
+                <button class="primary">Создать карточку</button>
+                <button>Смотреть примеры</button>
+            </div>
+        </header>
+
+        <!-- ===== HOW IT WORKS ===== -->
+        <section>
+            <span class="artifact-label">Как это работает</span>
+            <h2>Загрузите фото товара и за минуту получите готовую карточку, которая увеличит CTR вашей карточки</h2>
+            <p class="section-subtitle">Три простых шага от обычного фото к профессиональной карточке товара.</p>
+
+            <div class="steps-grid">
+                <div class="step-card">
+                    <div class="step-number">1</div>
+                    <div class="step-content">
+                        <h3>Загрузите фото и выберите шаблон</h3>
+                        <p>Просто загрузите фото, подойдет даже снятое на телефон. Выберите один из шаблонов.</p>
+                        <div class="problem-list">Поддерживаются форматы: JPG, PNG, WebP. Размер: от 500x500 до 4000x4000 пикселей.</div>
+                    </div>
+                </div>
+
+                <div class="step-card">
+                    <div class="step-number">2</div>
+                    <div class="step-content">
+                        <h3>Bitiy Pixel делает все остальное</h3>
+                        <p>Нейросеть удаляет фон, вы выбираете любой фон, добавляете визуальные элементы по подготовленному шаблону.</p>
+                        <div class="problem-list">Генерация занимает 10–30 секунд в зависимости от сложности.</div>
+                    </div>
+                </div>
+
+                <div class="step-card">
+                    <div class="step-number">3</div>
+                    <div class="step-content">
+                        <h3>Скачайте и публикуйте</h3>
+                        <p>Скачайте готовые карточки товаров с профессиональными визуальными элементами в любом нужном формате. Изображение готово к публикации.</p>
+                        <div class="problem-list">Подходит для Wildberries, OZON, Яндекс.Маркет и других маркетплейсов.</div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- ===== BEFORE-AFTER ===== -->
+        <section>
+            <span class="artifact-label">Примеры</span>
+            <h2>Как выглядят готовые карточки</h2>
+            <p class="section-subtitle">Посмотрите, как обычное фото превращается в продающую карточку товара для маркетплейса.</p>
+
+            <div class="before-after-grid">
+                <div>
+                    <div class="before-after-item">До</div>
+                    <div class="before-after-label">Исходное фото</div>
+                </div>
+                <div>
+                    <div class="before-after-item">После</div>
+                    <div class="before-after-label">Готовая карточка</div>
+                </div>
+            </div>
+
+            <p style="text-align: center; color: #666666; margin-bottom: 40px;">Эти работы выполнены за одну минуту. Можете попробовать сделать то же самое бесплатно.</p>
+        </section>
+
+        <!-- ===== TARIFFS ===== -->
+        <section>
+            <span class="artifact-label">Тарифы</span>
+            <h2>Выберите план, который подходит вам</h2>
+            <p class="section-subtitle">Гибкие тарифы для селлеров любого размера. Платите за реальное использование — никаких скрытых платежей и обязательных подписок.</p>
+
+            <div class="pricing-grid">
+                <div class="pricing-card">
+                    <div class="pricing-label">Для новичков</div>
+                    <h3>Старт</h3>
+                    <div class="pricing-price">Бесплатно</div>
+                    <div class="pricing-period">Первая генерация</div>
+                    <div class="pricing-description">Попробуйте инфографику на практике без регистрации</div>
+                    <ul>
+                        <li>✓ 1 бесплатная генерация</li>
+                        <li>✓ Базовые стили оформления</li>
+                        <li>✓ Скачивание в PNG, JPG, WebP</li>
+                    </ul>
+                    <button style="width: 100%;">Попробовать бесплатно</button>
+                </div>
+
+                <div class="pricing-card featured">
+                    <div class="pricing-label">Для активных селлеров</div>
+                    <h3>Про</h3>
+                    <div class="pricing-price">149 ₽</div>
+                    <div class="pricing-period">В месяц</div>
+                    <div class="pricing-description">Создавайте до 50 инфографик для товаров в месяц</div>
+                    <ul>
+                        <li>✓ До 50 генераций в месяц</li>
+                        <li>✓ Все стили и шаблоны оформления</li>
+                        <li>✓ Встроенный редактор</li>
+                        <li>✓ Приоритетная поддержка</li>
+                    </ul>
+                    <button style="width: 100%; margin-top: 24px;">Выбрать Про</button>
+                </div>
+
+                <div class="pricing-card">
+                    <div class="pricing-label">Для больших каталогов</div>
+                    <h3>Бизнес</h3>
+                    <div class="pricing-price">449 ₽</div>
+                    <div class="pricing-period">В месяц</div>
+                    <div class="pricing-description">Неограниченное создание инфографики для товаров</div>
+                    <ul>
+                        <li>✓ Все возможности Про</li>
+                        <li>✓ Расширенные форматы контента</li>
+                        <li>✓ Конструктор собственного стиля</li>
+                        <li>✓ История генераций — бесплатно</li>
+                        <li>✓ Приоритетная очередь</li>
+                    </ul>
+                    <button style="width: 100%; margin-top: 24px;">Выбрать Бизнес</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== REQUIREMENTS ===== -->
+        <section>
+            <span class="artifact-label">Требования</span>
+            <h2>Какие параметры требуют маркетплейсы</h2>
+            <p class="section-subtitle">Разные платформы устанавливают свои стандарты для качества и формата карточек товаров. Наш инструмент автоматически подготавливает изображения под требования каждого маркетплейса.</p>
+
+            <div class="table-wrapper">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Параметр</th>
+                            <th>Требование платформы</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Соотношение сторон</td>
+                            <td>3:4 (рекомендуется для большинства площадок)</td>
+                        </tr>
+                        <tr>
+                            <td>Минимальный размер</td>
+                            <td>900×1200 px</td>
+                        </tr>
+                        <tr>
+                            <td>Оптимальный размер</td>
+                            <td>1080×1440 px</td>
+                        </tr>
+                        <tr>
+                            <td>Формат файла</td>
+                            <td>JPG, PNG, WebP (до 10 МБ)</td>
+                        </tr>
+                        <tr>
+                            <td>Количество изображений</td>
+                            <td>От 3 до 30 фото в карточке товара</td>
+                        </tr>
+                        <tr>
+                            <td>Текст на изображении</td>
+                            <td>Допускается (описание товара, характеристики)</td>
+                        </tr>
+                        <tr>
+                            <td>Водяные знаки</td>
+                            <td>Запрещены на большинстве платформ</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- ===== CARD TYPES ===== -->
+        <section>
+            <span class="artifact-label">Форматы карточек</span>
+            <h2>Выбирайте формат, который лучше работает на продажи</h2>
+
+            <div class="benefits-grid">
+                <div class="benefit-card">
+                    <div class="benefit-icon">📸</div>
+                    <h3>Карточки с визуальными элементами</h3>
+                    <p>Чистое фото товара на белом фоне плюс плашки, иконки и характеристики. Такой формат хорошо работает для электроники, посуды и товаров, где важны точные параметры.</p>
+                </div>
+
+                <div class="benefit-card">
+                    <div class="benefit-icon">📝</div>
+                    <h3>Карточки с описаниями</h3>
+                    <p>Фото товара с текстовым описанием преимуществ, материала, размеров и других важных деталей. Идеально для одежды, мебели и товаров, требующих подробной информации.</p>
+                </div>
+
+                <div class="benefit-card">
+                    <div class="benefit-icon">🔍</div>
+                    <h3>Изображения с SEO-текстами</h3>
+                    <p>Карточка товара с оптимизированным текстом и ключевыми фразами для поиска. Помогает товару подняться выше в выдаче маркетплейса и привлечь целевых покупателей.</p>
+                </div>
+
+                <div class="benefit-card">
+                    <div class="benefit-icon">⚡</div>
+                    <h3>Минималистичные карточки</h3>
+                    <p>Строгий дизайн без лишних элементов. Фокус только на самом товаре и одном-двух ключевых преимуществах. Идеально для премиум-товаров и известных брендов.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== FAQ ===== -->
+        <section>
+            <span class="artifact-label">FAQ</span>
+            <h2>Часто задаваемые вопросы</h2>
+
+            <div class="faq-grid">
+                <div class="faq-item">
+                    <div class="faq-question">Что такое карточка товара с визуальными элементами и зачем она нужна?</div>
+                    <div class="faq-answer">Это профессиональное изображение товара с плашками, иконками и описаниями характеристик. На маркетплейцах такие карточки помогают быстро передать ключевые преимущества товара, подчеркнуть его особенности и убедить покупателя совершить покупку. Качественные карточки товаров повышают конверсию на 15-30%.</div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">Поддерживаете ли вы все маркетплейсы или только некоторые?</div>
+                    <div class="faq-answer">Наш сервис создаёт карточки товаров для всех основных маркетплейсов: Wildberries, OZON, Яндекс.Маркет, AliExpress, Kaspi.kz, Lamoda и других. Форматы и стили автоматически подстраиваются под требования каждой платформы.</div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">Можно ли обработать несколько товаров одновременно?</div>
+                    <div class="faq-answer">Да, за счет пакетной обработки вы можете подготовить карточки для сотен товаров автоматически. Загрузите список товаров с характеристиками, и система создаст изображения для каждого в едином стиле. Это экономит месяцы ручной работы.</div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">Можно ли настроить дизайн под брендбук моей компании?</div>
+                    <div class="faq-answer">Да. Можно загрузить фирменные цвета, логотип, шрифты и стиль. Система будет создавать карточки товаров в едином брендовом стиле для всех товаров, что делает каталог узнаваемым и профессиональным.</div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">В каких форматах можно скачать готовую карточку?</div>
+                    <div class="faq-answer">Готовые изображения доступны в PNG, JPG и WebP — все форматы поддерживаются всеми маркетплейсами. Выбирайте нужный при скачивании. JPG обычно меньше по размеру, PNG имеет прозрачный фон.</div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">Подходит ли сервис для разных категорий товаров?</div>
+                    <div class="faq-answer">Да, мы работаем со всеми категориями: электроника, косметика, одежда, мебель, спорттовары, посуда и другое. Система анализирует товар и автоматически подбирает наиболее эффективный стиль оформления для каждой категории.</div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">Как долго хранятся созданные карточки в аккаунте?</div>
+                    <div class="faq-answer">История всех ваших работ хранится в личном кабинете неограниченное время. Можно скачать готовое изображение в любой момент, отредактировать его или создать новую версию на основе уже готовой работы.</div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">Что делать, если результат не устраивает?</div>
+                    <div class="faq-answer">Если результат не подходит, создайте новую версию с уточнённым описанием. Опишите подробнее характеристики товара, желаемый стиль или цветовую схему. Система создаст альтернативный вариант карточки, который может вам понравиться больше.</div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">Какие требования маркетплейсов учитывает ваша система?</div>
+                    <div class="faq-answer">Наш ИИ знаком со всеми требованиями популярных платформ: размеры изображений, соотношение сторон, ограничения на текст, требования к качеству. Система автоматически создаёт карточки товаров, которые соответствуют стандартам каждого маркетплейса.</div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">Как это влияет на конверсию и продажи товара?</div>
+                    <div class="faq-answer">Качественная карточка товара помогает привлечь внимание в ленте маркетплейца, быстро донести информацию и убедить покупателя в покупке. Данные показывают, что товары с профессиональными изображениями получают на 15-30% больше кликов и продаются быстрее конкурентов.</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== FINAL CTA ===== -->
+        <section class="cta-section">
+            <span class="artifact-label">Готовы начать?</span>
+            <h2>Создайте вашу первую карточку товара прямо сейчас</h2>
+            <p>Первая попытка полностью бесплатна. Загрузите фото и посмотрите результат за 30 секунд. Нет регистрации, скрытых платежей и обязательных подписок.</p>
+            <button class="primary">Создать карточку бесплатно</button>
+        </section>
+
+        <!-- ===== FOOTER ===== -->
+        <footer>
+            <p>© 2026 Bitiy Pixel. Генератор карточек товаров для маркетплейсов — Wildberries, OZON, Яндекс.Маркет, AliExpress, Kaspi и других. Создание профессиональных изображений через ИИ для увеличения продаж и конверсии.</p>
+        </footer>
+    </div>
+
+    <script>
+        // FAQ accordion functionality
+        document.querySelectorAll('.faq-item').forEach(item => {
+            item.querySelector('.faq-question').addEventListener('click', () => {
+                item.classList.toggle('open');
+            });
+        });
+    </script>
+</body>
+</html>

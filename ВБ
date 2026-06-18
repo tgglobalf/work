@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Инфографика для Wildberries | Bitiy Pixel</title>
+    <title>Инфографика для маркетплейсов | Bitiy Pixel</title>
     <style>
         * {
             margin: 0;
@@ -41,7 +41,7 @@
         }
 
         h1 {
-            font-size: 48px;
+            font-size: 44px;
             font-weight: 700;
             line-height: 1.2;
             margin-bottom: 32px;
@@ -126,7 +126,7 @@
         }
 
         h2 {
-            font-size: 36px;
+            font-size: 32px;
             font-weight: 700;
             margin-bottom: 24px;
             color: #1a1a1a;
@@ -138,6 +138,34 @@
             color: #4b5563;
             margin-bottom: 40px;
             line-height: 1.7;
+        }
+
+        /* ===== SCENARIOS GRID (НОВЫЙ БЛОК) ===== */
+        .scenarios-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+            margin-bottom: 40px;
+        }
+
+        .scenario-card {
+            padding: 28px;
+            background: #f9fafb;
+            border-radius: 12px;
+            border: 1px solid #e5e7eb;
+        }
+
+        .scenario-card h3 {
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 12px;
+            color: #7c3aed;
+        }
+
+        .scenario-card p {
+            font-size: 14px;
+            color: #4b5563;
+            line-height: 1.6;
         }
 
         /* ===== HOW IT WORKS ===== */
@@ -180,58 +208,42 @@
             line-height: 1.6;
         }
 
-        .step-content .problem-list {
-            margin-top: 16px;
-            padding: 20px;
-            background: #f9fafb;
-            border-radius: 8px;
-            font-size: 15px;
-            color: #374151;
-            line-height: 1.6;
-            border: 1px solid #e5e7eb;
-        }
-
-        /* ===== BEFORE-AFTER ===== */
-        .before-after-grid {
+        /* ===== REALISM BLOCK (НОВЫЙ БЛОК) ===== */
+        .realism-block {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 24px;
-            margin-bottom: 20px;
-        }
-
-        .before-after-item {
-            background: #f3f4f6;
-            border-radius: 8px;
-            overflow: hidden;
-            aspect-ratio: 3/4;
-            display: flex;
+            gap: 40px;
+            background: #fdfaee;
+            border: 1px solid #f5e6c4;
+            padding: 40px;
+            border-radius: 16px;
             align-items: center;
-            justify-content: center;
-            font-size: 14px;
-            color: #9ca3af;
-            font-weight: 600;
-            border: 1px dashed #d1d5db;
         }
 
-        .before-after-label {
-            text-align: center;
-            margin-top: 12px;
-            font-weight: 600;
-            font-size: 15px;
+        .realism-text h3 {
+            font-size: 22px;
+            margin-bottom: 16px;
             color: #1a1a1a;
         }
 
-        .before-after-result {
-            background: #f0fdf4;
-            padding: 16px;
-            border-radius: 8px;
-            margin-top: 16px;
+        .realism-text p {
             font-size: 15px;
-            color: #16a34a;
-            font-weight: 600;
-            border: 1px solid #bbf7d0;
-            display: inline-block;
-            width: 100%;
+            color: #4b5563;
+            line-height: 1.6;
+        }
+
+        .realism-features {
+            list-style: none;
+        }
+
+        .realism-features li {
+            margin-bottom: 12px;
+            font-size: 15px;
+            color: #1a1a1a;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            gap: 10px;
         }
 
         /* ===== BENEFITS ===== */
@@ -247,7 +259,6 @@
             background: #ffffff;
             border-radius: 12px;
             border: 1px solid #e5e7eb;
-            box-shadow: 0 1px 3px rgba(0,0,0,0.02);
         }
 
         .benefit-icon {
@@ -288,14 +299,7 @@
         .pricing-card.featured {
             border: 2px solid #7c3aed;
             position: relative;
-            box-shadow: 0 10px 25px -5px rgba(124, 58, 237, 0.1), 0 8px 10px -6px rgba(124, 58, 237, 0.05);
-        }
-
-        .pricing-card h3 {
-            font-size: 20px;
-            font-weight: 700;
-            margin-bottom: 12px;
-            color: #1a1a1a;
+            box-shadow: 0 10px 25px -5px rgba(124, 58, 237, 0.1);
         }
 
         .pricing-value {
@@ -303,7 +307,6 @@
             font-weight: 800;
             margin: 12px 0 4px;
             color: #1a1a1a;
-            letter-spacing: -0.02em;
         }
 
         .pricing-card ul {
@@ -317,17 +320,6 @@
             font-size: 15px;
             color: #4b5563;
             border-bottom: 1px solid #f3f4f6;
-            display: flex;
-            align-items: center;
-        }
-
-        .pricing-card li:last-child {
-            border-bottom: none;
-        }
-
-        .pricing-card button {
-            width: 100%;
-            margin-top: 16px;
         }
 
         /* ===== REQUIREMENTS TABLE ===== */
@@ -342,7 +334,6 @@
             width: 100%;
             border-collapse: collapse;
             font-size: 15px;
-            background: #ffffff;
         }
 
         th {
@@ -351,17 +342,12 @@
             font-weight: 600;
             background: #f9fafb;
             border-bottom: 2px solid #e5e7eb;
-            color: #1a1a1a;
         }
 
         td {
             padding: 18px 20px;
             border-bottom: 1px solid #e5e7eb;
             color: #4b5563;
-        }
-
-        tr:last-child td {
-            border-bottom: none;
         }
 
         /* ===== TESTIMONIALS ===== */
@@ -394,35 +380,6 @@
             align-items: center;
             justify-content: center;
             font-weight: 600;
-            font-size: 16px;
-            flex-shrink: 0;
-        }
-
-        .testimonial-info h4 {
-            font-size: 16px;
-            font-weight: 600;
-            color: #1a1a1a;
-            margin-bottom: 4px;
-        }
-
-        .testimonial-info p {
-            font-size: 13px;
-            color: #6b7280;
-        }
-
-        .testimonial-text {
-            font-size: 16px;
-            line-height: 1.6;
-            color: #1f2937;
-            margin-bottom: 16px;
-        }
-
-        .testimonial-result {
-            font-size: 15px;
-            font-weight: 600;
-            color: #7c3aed;
-            padding-top: 16px;
-            border-top: 1px solid #f3f4f6;
         }
 
         /* ===== FAQ ===== */
@@ -436,21 +393,11 @@
             border-bottom: 1px solid #e5e7eb;
         }
 
-        .faq-item:last-child {
-            border-bottom: none;
-        }
-
         .faq-question {
             font-size: 18px;
             font-weight: 600;
             color: #1a1a1a;
             margin-bottom: 12px;
-        }
-
-        .faq-answer {
-            color: #4b5563;
-            font-size: 16px;
-            line-height: 1.7;
         }
 
         /* ===== CTA SECTION ===== */
@@ -463,23 +410,12 @@
             color: #ffffff;
         }
 
-        .cta-section h2 {
-            margin-bottom: 24px;
-            color: #ffffff;
-        }
-
         .cta-section p {
             font-size: 18px;
             color: #9ca3af;
             margin-bottom: 40px;
         }
 
-        .cta-section button {
-            font-size: 18px;
-            padding: 18px 48px;
-        }
-
-        /* ===== FOOTER ===== */
         footer {
             padding: 40px 0;
             text-align: center;
@@ -488,7 +424,6 @@
             border-top: 1px solid #e5e7eb;
         }
 
-        /* ===== ARTIFACT LABELS ===== */
         .artifact-label {
             font-size: 12px;
             font-weight: 700;
@@ -499,39 +434,13 @@
             display: block;
         }
 
-        /* ===== RESPONSIVE ===== */
         @media (max-width: 768px) {
-            h1 {
-                font-size: 32px;
-            }
-
-            h2 {
-                font-size: 26px;
-            }
-
-            .benefits-grid,
-            .pricing-cards,
-            .before-after-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .step-card {
-                grid-template-columns: 50px 1fr;
-            }
-
-            .step-number {
-                width: 50px;
-                height: 50px;
-                font-size: 20px;
-            }
-
-            .hero-buttons {
-                flex-direction: column;
-            }
-
-            button {
-                width: 100%;
-            }
+            h1 { font-size: 32px; }
+            .scenarios-grid, .benefits-grid, .pricing-cards, .realism-block { grid-template-columns: 1fr; }
+            .step-card { grid-template-columns: 50px 1fr; }
+            .step-number { width: 50px; height: 50px; font-size: 20px; }
+            .hero-buttons { flex-direction: column; }
+            button { width: 100%; }
         }
     </style>
 </head>
@@ -540,374 +449,231 @@
         <!-- ===== HERO ===== -->
         <header>
             <div class="logo">Bitiy Pixel</div>
-            <h1>Профессиональная инфографика для Wildberries за 30 секунд с помощью ИИ</h1>
-            
+            <h1>Умный генератор карточек для WB и Ozon: профессиональный контент за 30 секунд</h1>
             <p class="hero-subtitle">
-                Wildberries требует безупречный контент, соблюдение пропорций 3:4 и яркие акценты для удержания внимания. Услуги дизайнеров стоят дорого, а правки затягиваются на дни. Забудьте о сложных ручных инструментах и сорванных дедлайнах. Наш умный генератор карточек wb создаст уникальный дизайн, удалит фон и оформит товар автоматически под все требования алгоритмов маркетплейса.
+                Создавайте продающие фотосеты, бесшовную инфографику и убедительные фотоворонки без привлечения дорогостоящих студий и долгих согласований с дизайнерами.
             </p>
 
-            <div class="hero-highlight">
-                <strong>Специализированный ИИ-сервис для селлеров wb:</strong>
-                <p>Платформа Bitiy Pixel обучена на миллионах успешных карточек из топа выдачи. Сервис автоматически кадрирует фото в идеальный формат 3:4 (900×1200 px или 1080×1440 px), накладывает продающие плашки и генерирует реалистичное окружение, обходя «слепые зоны» интерфейса WB (иконки скидок, лайки и корзину). Создание инфографики wb теперь не требует технических навыков или составления сложных промптов — система выдает готовый результат за считанные секунды.</p>
-            </div>
-
             <div class="hero-buttons">
-                <button class="primary">Создать карточку товара WB бесплатно</button>
-                <button>Посмотреть примеры инфографики</button>
+                <button class="primary">Собрать карточку бесплатно</button>
+                <button>Примеры генераций</button>
             </div>
         </header>
 
-        <!-- ===== HOW IT WORKS (ПРОБЛЕМА -> РЕШЕНИЕ) ===== -->
+        <!-- ===== NEW: SCENARIOS BLOCK (По примеру конкурентов) ===== -->
         <section>
-            <span class="artifact-label">Решение болей селлеров</span>
-            <h2>Почему ручное оформление карточек wb тянет ваш бизнес на дно?</h2>
-            <p class="section-subtitle">Каждый день рутины — это упущенная прибыль. Посмотрите, как Bitiy Pixel превращает хаос и расходы в автоматизированную систему продаж.</p>
+            <span class="artifact-label">Сценарии использования</span>
+            <h2>Один клик для решения любой задачи селлера</h2>
+            <p class="section-subtitle">Система адаптируется под текущий этап вашего бизнеса — от первого теста ниши до автоматизации крупного каталога.</p>
+            
+            <div class="scenarios-grid">
+                <div class="scenario-card">
+                    <h3>Запуск новинки</h3>
+                    <p>Товар только приехал? Сформируйте полноценную обложку и серию из 5 маркетинговых слайдов всего за минуту. Комплект полностью готов к выгрузке на маркетплейс.</p>
+                </div>
+                <div class="scenario-card">
+                    <h3>Падение кликов (CTR)</h3>
+                    <p>Текущие продажи просели? Быстро обновите главное фото и протестируйте новые визуальные триггеры по проверенным методикам удержания внимания покупателей.</p>
+                </div>
+                <div class="scenario-card">
+                    <h3>Масштабирование</h3>
+                    <p>Нужно упаковать сотни позиций? Применяйте единый концепт ко всей товарной матрице одновременно с помощью пакетной автоматизации и умных шаблонов.</p>
+                </div>
+            </div>
+        </section>
 
+        <!-- ===== HOW IT WORKS ===== -->
+        <section>
+            <span class="artifact-label">Как это работает</span>
+            <h2>Автоматизация вашего контента в три шага</h2>
+            
             <div class="steps-grid">
                 <div class="step-card">
                     <div class="step-number">1</div>
                     <div class="step-content">
-                        <h3>Слив бюджета на фрилансеров vs Мгновенный старт</h3>
-                        <p>Обычный дизайн карточек wb цена которого составляет от 500 до 1500 рублей за слайд, съедает маржу еще до запуска рекламы. С Битым Пикселем вы загружаете исходное фото товара со смартфона и получаете готовую графику бесплатно.</p>
-                        <div class="problem-list">
-                            <strong>Как ИИ решает проблемы исходного фото:</strong><br>
-                            • Автоматически вырезает хаотичный бэкграунд и заменяет его на студийную локацию<br>
-                            • Корректирует резкость, баланс белого и убирает шумы смартфона<br>
-                            • Создает уникальную генерацию карточек wb без использования заезженных стоковых фонов
-                        </div>
+                        <h3>Загрузка исходного кадра</h3>
+                        <p>Добавьте обычный снимок продукта, сделанный даже на простой смартфон. Нейросеть мгновенно отделит объект от хаотичного заднего плана, аккуратно убрав любые тени и шумы.</p>
                     </div>
                 </div>
 
                 <div class="step-card">
                     <div class="step-number">2</div>
                     <div class="step-content">
-                        <h3>Бесконечные правки днями vs Готовый дизайн за 30 секунд</h3>
-                        <p>Пока менеджеры или дизайнеры переносят плашки и переписывают шрифты, карточки конкурентов забирают заказы. Наша программа инфографика wb накладывает проверенные коммерческие триггеры за один клик.</p>
-                        <div class="problem-list">
-                            <strong>Защита от критических ошибок ручного монтажа:</strong><br>
-                            • Инфографика строго адаптирована под пропорции и стандарты Wildberries<br>
-                            • ИИ автоматически сохраняет единый визуальный стиль для всей товарной матрицы<br>
-                            • Текстовые блоки не перекрываются техническими элементами маркетплейса в ленте выдачи
-                        </div>
+                        <h3>Выбор ИИ-сцены и триггеров</h3>
+                        <p>Определите подходящую локацию и стиль оформления. Искусственный интеллект автоматически распознает тип товара и предложит оптимальные варианты плашек, иконок и преимуществ.</p>
                     </div>
                 </div>
 
                 <div class="step-card">
                     <div class="step-number">3</div>
                     <div class="step-content">
-                        <h3>Слепые тесты и низкий CTR vs Оптимизация под ИИ-выдачу и клики</h3>
-                        <p>Просто сделать «красиво» больше не работает. Продуманное оформление карточки товара wb должно цеплять взгляд в первые 0.5 секунд скроллинга. Сервис создает контрастный визуал, который увеличивает CTR и выводит карточку в топ.</p>
-                        <div class="problem-list">
-                            <strong>Инструменты сквозного контент-маркетинга:</strong><br>
-                            • Генерация карточек wb в любых стилях (минимализм, сочный неон, премиум-эстетика)<br>
-                            • Автоматическое позиционирование товара под фокус внимания покупателя<br>
-                            • Подготовка изображений к успешному распознаванию нейросетевыми поисковыми агентами (AEO)
-                        </div>
+                        <h3>Экспорт готовой серии</h3>
+                        <p>Получите комплект консистентных изображений, выполненных в единой стилистике — от привлекательного главного слайда до проработанной карточки технических характеристик.</p>
                     </div>
                 </div>
             </div>
-
-            <div style="background: #f5f3ff; padding: 24px; border-radius: 12px; border-left: 4px solid #7c3aed; margin: 40px 0; border-top: 1px solid #e5e7eb; border-right: 1px solid #e5e7eb; border-bottom: 1px solid #e5e7eb;">
-                <h3 style="font-size: 18px; margin-bottom: 12px; color: #1a1a1a;">Запуск продаж без посредников за полминуты</h3>
-                <p style="color: #4b5563; margin-bottom: 12px;">Вы полностью контролируете визуал своего бренда. Больше не нужно составлять сложные технические задания для сторонних студий или осваивать Photoshop. Достаточно выбрать категорию товара и активировать генератор — Bitiy Pixel сделает всё остальное.</p>
-                <p style="color: #1a1a1a; font-weight: 600;">Главное преимущество: алгоритмы обучены продавать. Вы получаете не просто красивую картинку, а сильный маркетинговый инструмент, полностью готовый к выгрузке в личный кабинет селлера.</p>
-            </div>
-
-            <div style="text-align: center; margin-top: 50px;">
-                <button class="primary">Попробовать генератор карточек wb бесплатно</button>
-            </div>
         </section>
 
-        <!-- ===== BEFORE-AFTER ===== -->
+        <!-- ===== NEW: REALISM & SAFETY BLOCK (Важный блок против страхов селлеров) ===== -->
         <section>
-            <span class="artifact-label">Результаты в цифрах</span>
-            <h2>Как меняются показатели карточек в выдаче Wildberries</h2>
-            <p class="section-subtitle">Реальные кейсы селлеров: трансформация любительских снимков в высококонверсионную инфографику для wb</p>
-
-            <div class="before-after-grid">
-                <div>
-                    <div class="before-after-item">ИСХОДНОЕ СЫРОЕ ФОТО</div>
-                    <div class="before-after-label">До оптимизации в Bitiy Pixel</div>
+            <div class="realism-block">
+                <div class="realism-text">
+                    <h3>Честный визуал: без искажений и дефектов</h3>
+                    <p>Самая большая проблема стандартных нейросетей — изменение формы или цвета реального объекта. Bitiy Pixel использует изолированные алгоритмы обработки, гарантируя полную безопасность ваших продаж.</p>
                 </div>
                 <div>
-                    <div class="before-after-item" style="background: #f5f3ff; color: #7c3aed; border-color: #c084fc;">AI-ИНФОГРАФИКА 3:4</div>
-                    <div class="before-after-label">После обработки нейросетью</div>
+                    <ul class="realism-features">
+                        <li>✦ Настоящие оттенки и текстура материала</li>
+                        <li>✦ Идеальное сохранение геометрии продукта</li>
+                        <li>✦ Органичное ИИ-моделирование теней и света</li>
+                        <li>✦ Защита от жалоб покупателей на несоответствие</li>
+                    </ul>
                 </div>
-            </div>
-
-            <div class="before-after-result">
-                ✓ Результат: CTR карточки вырос с 1.9% до 5.2% | Рост продаж в 3.5 раза | Выход в ТОП-20 в категории «Косметика»
-            </div>
-
-            <div class="before-after-grid" style="margin-top: 40px;">
-                <div>
-                    <div class="before-after-item">ФОТО НА СМАРТФОН С ТЕНЯМИ</div>
-                    <div class="before-after-label">До оптимизации в Bitiy Pixel</div>
-                </div>
-                <div>
-                    <div class="before-after-item" style="background: #f0fdf4; color: #16a34a; border-color: #86efac;">ГОТОВАЯ КАРТОЧКА С AI-ФОНОМ</div>
-                    <div class="before-after-label">После обработки нейросетью</div>
-                </div>
-            </div>
-
-            <div class="before-after-result">
-                ✓ Результат: Экономия 45 000 ₽ на услугах студии дизайна | Прохождение модерации WB за 1 минуту | +65% к заказам
             </div>
         </section>
 
-        <!-- ===== THREE STEPS ===== -->
+        <!-- ===== BENEFITS ===== -->
         <section>
-            <span class="artifact-label">Простой алгоритм</span>
-            <h2>Три шага до взрывного роста продаж на WB</h2>
-            <p class="section-subtitle">Создание инфографики wb от идеи до готового скачивания занимает меньше одной минуты</p>
-
-            <div class="steps-grid">
-                <div class="step-card">
-                    <div class="step-number">1</div>
-                    <div class="step-content">
-                        <h3>Мгновенный доступ</h3>
-                        <p>Авторизуйтесь в личном кабинете Bitiy Pixel за 15 секунд. Без ввода данных банковских карт — тестовые лимиты сразу доступны на вашем балансе.</p>
-                    </div>
+            <h2>Преимущества платформы Bitiy Pixel</h2>
+            <div class="benefits-grid">
+                <div class="benefit-card">
+                    <div class="benefit-icon">💾</div>
+                    <h3>Единый визуальный стиль</h3>
+                    <p>Создавайте серии изображений, которые смотрятся гармонично. Покупатель плавно скроллит вашу фотоворонку, считывая смыслы без визуального шума.</p>
                 </div>
-
-                <div class="step-card">
-                    <div class="step-number">2</div>
-                    <div class="step-content">
-                        <h3>Загрузка и выбор стиля генерации</h3>
-                        <p>Загрузите фото товара. Выберите тематический шаблон, стиль инфографики и укажите ключевые преимущества, которые нужно подсветить.</p>
-                    </div>
+                <div class="benefit-card">
+                    <div class="benefit-icon">🛡️</div>
+                    <h3>Учет интерфейса маркетплейсов</h3>
+                    <p>Графика проектируется с учетом «слепых зон». Важные надписи и УТП никогда не будут перекрыты внутренними кнопками, лайками или иконками скидок площадки.</p>
                 </div>
-
-                <div class="step-card">
-                    <div class="step-number">3</div>
-                    <div class="step-content">
-                        <h3>Экспорт готовой инфографики</h3>
-                        <p>Через 30 секунд нейросеть сгенерирует идеальное оформление товаров wb. Скачивайте файлы в максимальном разрешении и загружайте на маркетплейс.</p>
-                    </div>
+                <div class="benefit-card">
+                    <div class="benefit-icon">📈</div>
+                    <h3>Оптимизация под алгоритмы</h3>
+                    <p>Контрастные карточки привлекают больше кликов в органической выдаче, подталкивая алгоритмы маркетплейсов поднимать ваши товары выше в поиске.</p>
+                </div>
+                <div class="benefit-card">
+                    <div class="benefit-icon">⚙️</div>
+                    <h3>Никаких ручных конструкторов</h3>
+                    <p>Вам больше не нужно двигать пиксели или подбирать шрифты самостоятельно. Нейросеть сделает всю сложную композиционную работу за вас.</p>
                 </div>
             </div>
         </section>
 
-        <!-- ===== PRICING (ПЕРЕРАБОТАНО ПОД ВЫГОДНЫЕ ОПЦИИ ИЗМЕНЕНИЯ КОНТЕНТА) ===== -->
-        <section style="background: linear-gradient(135deg, #f5f3ff 0%, #faf5ff 100%); padding: 60px 32px; border-radius: 16px; margin-bottom: 100px; border: 1px solid #e8e5f7;">
-            <span class="artifact-label">Тарифные планы</span>
-            <h2 style="text-align: center; margin-bottom: 16px;">Пакеты для кратного масштабирования бизнеса</h2>
-            <p class="section-subtitle" style="text-align: center; max-width: 600px; margin: 0 auto 40px;">Оформление карточек wb цена которого окупается с первых продаж. Выберите оптимальный объем генераций для вашего магазина.</p>
-
-            <div class="pricing-cards" style="margin-top: 30px;">
+        <!-- ===== PRICING ===== -->
+        <section>
+            <span class="artifact-label">Стоимость</span>
+            <h2>Гибкие тарифы под любые объемы продаж</h2>
+            <div class="pricing-cards">
                 <div class="pricing-card">
-                    <h3>Тест-драйв</h3>
+                    <h3>Стартовый тест</h3>
                     <div class="pricing-value">0 ₽</div>
-                    <p style="color: #6b7280; font-size: 14px; margin-bottom: 12px;">10 бесплатных генераций</p>
                     <ul>
-                        <li>✓ Базовое создание по шаблону</li>
-                        <li>✓ Автоматическое удаление фона</li>
-                        <li>✓ Стандартные стили карточек</li>
-                        <li>✓ Идеальный формат WB 3:4</li>
-                        <li>✓ Скачивание в высоком качестве</li>
-                        <li>✓ История проектов — 7 дней</li>
+                        <li>✓ 10 ознакомительных генераций</li>
+                        <li>✓ Базовый набор стилей и локаций</li>
+                        <li>✓ Интеллектуальное удаление бэкграунда</li>
+                        <li>✓ Доступ к стандартным макетам</li>
                     </ul>
-                    <button style="width: 100%; margin-top: 24px;">Начать бесплатно</button>
+                    <button style="width: 100%;">Попробовать сейчас</button>
                 </div>
-
                 <div class="pricing-card featured">
-                    <div style="position: absolute; top: -12px; right: 20px; background: #7c3aed; color: white; padding: 6px 16px; border-radius: 20px; font-size: 12px; font-weight: 600;">Выбор селлеров</div>
-                    <h3>Селлер (PRO)</h3>
+                    <h3>Профессиональный</h3>
                     <div class="pricing-value">1 990 ₽</div>
-                    <p style="color: #6b7280; font-size: 14px; margin-bottom: 12px;">300 генераций (~6.6 ₽ за карточку)</p>
                     <ul>
-                        <li>✓ Все возможности Тест-драйва</li>
-                        <li>✓ Доступ к закрытым PRO-шаблонам</li>
-                        <li>✓ Безлимитное добавление инфографики</li>
-                        <li>✓ Генерация карточек по примеру конкурентов</li>
-                        <li>✓ Обход слепых зон маркетплейса WB</li>
-                        <li>✓ Встроенный ИИ-генератор SEO-текстов</li>
-                        <li>✓ История генераций не ограничена</li>
+                        <li>✓ 300 полноценных генераций в месяц</li>
+                        <li>✓ Максимальный приоритет обработки</li>
+                        <li>✓ Эксклюзивные продающие PRO-шаблоны</li>
+                        <li>✓ Пакетная обработка каталогов</li>
+                        <li>✓ Полноценный ИИ-помощник для текстов</li>
                     </ul>
-                    <button class="primary" style="width: 100%; margin-top: 24px;">Активировать PRO-доступ</button>
+                    <button class="primary" style="width: 100%;">Активировать PRO</button>
                 </div>
             </div>
         </section>
 
-        <!-- ===== REQUIREMENTS (ТРЕБОВАНИЯ ДЛЯ WILDBERRIES) ===== -->
+        <!-- ===== REQUIREMENTS TABLE ===== -->
         <section>
-            <span class="artifact-label">Стандарты площадки</span>
-            <h2>Технические требования Wildberries к контенту в 2026 году</h2>
-            <p class="section-subtitle">Алгоритмы Wildberries жестко пессимизируют карточки за некачественный визуал или неправильные пропорции. Сервис для селлеров wb Bitiy Pixel автоматически учитывает все параметры.</p>
-
+            <h2>Полное соответствие техническим регламентам</h2>
             <div class="table-wrapper">
                 <table>
                     <thead>
                         <tr>
-                            <th>Критерий контента</th>
-                            <th>Регламент Wildberries</th>
-                            <th>Стандарты Bitiy Pixel</th>
-                            <th>Статус проверки</th>
+                            <th>Параметр</th>
+                            <th>Требования площадок</th>
+                            <th>Решение от Bitiy Pixel</th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr>
-                            <td>Пропорции изображения</td>
-                            <td>Строго 3:4</td>
-                            <td>Автоматическое кадрирование 3:4</td>
-                            <td>✓ Идеальное соответствие</td>
+                            <td>Формат кадра</td>
+                            <td>Стандарты 3:4 и 1:1</td>
+                            <td>Автоматическая подгонка пропорций под выбранную площадку</td>
                         </tr>
                         <tr>
-                            <td>Разрешение (базовое)</td>
-                            <td>Минимум 900×1200 px</td>
-                            <td>Повышенное качество 1080×1440 px</td>
-                            <td>✓ Превышает стандарт</td>
+                            <td>Четкость картинки</td>
+                            <td>Высокое разрешение без размытия</td>
+                            <td>Экспорт файлов в повышенном качестве (до 1080×1440 px)</td>
                         </tr>
                         <tr>
-                            <td>Слепые зоны интерфейса</td>
-                            <td>Риск перекрытия плашками WB</td>
-                            <td>Умное размещение текста вне зон перекрытия</td>
-                            <td>✓ Безопасно для чтения</td>
-                        </tr>
-                        <tr>
-                            <td>Уникальность бэкграунда</td>
-                            <td>Штрафы за неуникальные сток-фото</td>
-                            <td>100% уникальная генерация фонов через ИИ</td>
-                            <td>✓ Защита от банов</td>
-                        </tr>
-                        <tr>
-                            <td>Форматы файлов</td>
-                            <td>JPG, PNG</td>
-                            <td>Экспорт в форматах высокой четкости PNG и JPG</td>
-                            <td>✓ Полная поддержка</td>
-                        </tr>
-                        <tr>
-                            <td>Модерация карточки</td>
-                            <td>Автоматический скоринг WB</td>
-                            <td>Контрастный визуал гарантированно проходит робота</td>
-                            <td>✓ Проверено на практике</td>
+                            <td>Уникальность кода</td>
+                            <td>Отсутствие дублей в базе данных</td>
+                            <td>Каждая генерация создает полностью новый уникальный фон</td>
                         </tr>
                     </tbody>
                 </table>
             </div>
         </section>
 
-        <!-- ===== BENEFITS ===== -->
+        <!-- ===== TESTIMONIALS ===== -->
         <section>
-            <h2>Почему успешные магазины переходят на Bitiy Pixel?</h2>
-
-            <div class="benefits-grid">
-                <div class="benefit-card">
-                    <div class="benefit-icon">⚡</div>
-                    <h3>Колоссальная скорость</h3>
-                    <p>Полная упаковка новой карточки товара занимает не более 30 секунд. Вы можете тестировать десятки новых ниш и выводить товары на маркетплейс за один вечер.</p>
-                </div>
-
-                <div class="benefit-card">
-                    <div class="benefit-icon">🎨</div>
-                    <h3>Дизайн без дизайнеров</h3>
-                    <p>Никаких сложных настроек слоев или изучения кривых. Полностью автоматический No-Code интерфейс, созданный специально для занятых предпринимателей.</p>
-                </div>
-
-                <div class="benefit-card">
-                    <div class="benefit-icon">💰</div>
-                    <h3>Сокращение костов на 90%</h3>
-                    <p>Стоимость генерации через ИИ в десятки раз дешевле услуг фрилансеров. Экономьте от 50 000 рублей в месяц на контенте и перенаправляйте бюджет в закупку рекламы.</p>
-                </div>
-
-                <div class="benefit-card">
-                    <div class="benefit-icon">✨</div>
-                    <h3>Максимальный CTR</h3>
-                    <p>Выверенная контрастность, яркие шрифты и уникальные сюжетные фоны выделяют ваш товар среди одинаковых карточек конкурентов в ленте выдачи.</p>
-                </div>
-            </div>
-        </section>
-
-        <!-- ===== TESTIMONIALS (НОВЫЕ ОТЗЫВЫ ДЛЯ WB) ===== -->
-        <section>
-            <h2>Отзывы действующих селлеров Wildberries</h2>
-
+            <h2>Опыт селлеров, которые уже автоматизировали контент</h2>
             <div class="testimonials-grid">
                 <div class="testimonial">
                     <div class="testimonial-header">
-                        <div class="testimonial-avatar">АК</div>
-                        <div class="testimonial-info">
-                            <h4>Андрей Кузнецов</h4>
-                            <p>Ниша: Товары для авто и Эндуро аксессуары, WB</p>
+                        <div class="testimonial-avatar">А</div>
+                        <div>
+                            <h4>Андрей К.</h4>
+                            <p>Категория: Автотовары и аксессуары</p>
                         </div>
                     </div>
-                    <div class="testimonial-text">"Раньше оформление карточек wildberries обходилось в копеечку — дизайнер брал по 700 рублей за слайд, постоянно задерживал сроки и путал ТЗ. С Битым Пикселем упаковал всю матрицу за пару часов. Нейросеть идеально вырезала сложные детали мотошлемов и создала крутые фоны. Продажи выросли, а косты на контент упали до нуля!"</div>
-                    <div class="testimonial-result">Результат: Сэкономлено 65 000 ₽ на старте | Рост заказов: +42%</div>
+                    <p class="testimonial-text">"Загрузил фотографии новой партии мотошлемов, снятые прямо на складе. Нейросеть мгновенно убрала весь мусор с фона, добавила стильное окружение и аккуратно расположила текстовые буллеты. Карточки выглядят так, будто над ними неделю сидела дизайн-студия."</p>
                 </div>
-
                 <div class="testimonial">
                     <div class="testimonial-header">
-                        <div class="testimonial-avatar">СВ</div>
-                        <div class="testimonial-info">
-                            <h4>Светлана Володина</h4>
-                            <p>Ниша: Профессиональное бьюти-оборудование, WB</p>
+                        <div class="testimonial-avatar">С</div>
+                        <div>
+                            <h4>Светлана В.</h4>
+                            <p>Категория: Косметика и уход</p>
                         </div>
                     </div>
-                    <div class="testimonial-text">"В бьюти-сфере невероятно важна визуальная эстетика. Попробовала бесплатный тест-драйв сервиса и была поражена: ИИ мгновенно убрал домашний фон с фото аппарата для чистки лица и перенес его в шикарный интерьер спа-салона. Текст лег ровно, не перекрывается плашками скидок WB. Карточки вылетели в ТОП!"</div>
-                    <div class="testimonial-result">Результат: Рост CTR карточки с 2.1% до 5.8% | Прохождение модерации без сбоев</div>
-                </div>
-
-                <div class="testimonial">
-                    <div class="testimonial-header">
-                        <div class="testimonial-avatar">БГ</div>
-                        <div class="testimonial-info">
-                            <h4>Борис Григорьев</h4>
-                            <p>Ниша: Одежда и Casual-свитшоты, WB</p>
-                        </div>
-                    </div>
-                    <div class="testimonial-text">"У нас огромный ассортимент одежды, под каждую позицию нужно делать по 5-6 слайдов инфографики. Нанимать штат дизайнеров — самоубийство для маржи. Этот генератор карточек wb стал спасением. Он держит единый стиль по всему каталогу, автоматически кадрирует под 3:4. Очень удобно, быстро и максимально экономно."</div>
-                    <div class="testimonial-result">Результат: Время на обработку каталога сократилось на 95% | Общий оборот вырос на 35%</div>
+                    <p class="testimonial-text">"Для бьюти-сферы критично сохранять правильные оттенки продуктов. Этот сервис — первый, который не исказил цвет крема, но при этом сгенерировал потрясающий премиальный фон с каплями воды и цветами. CTR вырос с первых дней!"</p>
                 </div>
             </div>
         </section>
 
-        <!-- ===== FAQ (ПЕРЕРАБОТАНО ПОД AEO/SEO ТРЕБОВАНИЯ WILDBERRIES) ===== -->
+        <!-- ===== FAQ ===== -->
         <section>
-            <h2>Часто задаваемые вопросы о генерации инфографики для WB</h2>
-
+            <h2>Ответы на популярные вопросы</h2>
             <div class="faq-grid">
                 <div class="faq-item">
-                    <div class="faq-question">Пессимизирует ли Wildberries карточки за использование изображений от ИИ?</div>
-                    <div class="faq-answer">Нет, алгоритмы Wildberries не накладывают никаких санкций за использование нейросетей. Поисковый робот маркетплейса оценивает исключительно поведенческие факторы: процент кликабельности (CTR) главного фото и конверсию в корзину. Уникальная инфографика для wb, созданная в сервисе Bitiy Pixel, наоборот, повышает эти метрики, стимулируя рост позиций товара в органической выдаче.</div>
+                    <div class="faq-question">Не заблокируют ли мой личный кабинет за ИИ-карточки?</div>
+                    <div class="faq-answer">Исключено. Площадки оценивают исключительно качество картинки и её кликабельность. Уникальный графический контент, создаваемый сервисом, полностью легален и помогает карточке быстрее проходить внутренние проверки роботов.</div>
                 </div>
-
                 <div class="faq-item">
-                    <div class="faq-question">Учитывает ли сервис слепые зоны приложения Wildberries?</div>
-                    <div class="faq-answer">Да, это одно из главных преимуществ нашей платформы перед обычными фоторедакторами. Алгоритм Bitiy Pixel точно знает, где интерфейс маркетплейса размещает плашку со скидкой, значок «Хочу в подарок» и иконку корзины. Система распределяет ключевые текстовые триггеры и инфографику так, чтобы они оставались на 100% читаемыми для покупателей.</div>
-                </div>
-
-                <div class="faq-item">
-                    <div class="faq-question">Нужно ли мне уметь писать сложные промпты для генерации уникального фона?</div>
-                    <div class="faq-answer">Абсолютно нет. Сервис работает по принципу No-Code и адаптирован для обычных продавцов и менеджеров. Программа инфографика wb содержит встроенные, заранее оптимизированные шаблоны по популярным нишам маркетплейса. Вы просто выбираете нужный стиль («Скандинавский интерьер», «Студийный свет», «Природа») кликом мыши, и ИИ сам выстраивает окружение вокруг вашего товара.</div>
-                </div>
-
-                <div class="faq-item">
-                    <div class="faq-question">Как созданные ИИ-карточки влияют на SEO-продвижение на маркетплейсе?</div>
-                    <div class="faq-answer">Качественное оформление карточки товара wb напрямую связано со сквозным SEO. Привлекательный визуальный ряд поднимает CTR, алгоритм маркетплейса распознает вашу карточку как коммерчески успешную и начинает чаще рекомендовать её в блоках «С этим товаром покупают» и поднимать по ключевым запросам. Кроме того, уникальный фон защищает вас от склейки в поиске с конкурентами, продающими аналогичный товар.</div>
-                </div>
-
-                <div class="faq-item">
-                    <div class="faq-question">Как работает бесплатный тариф и есть ли ограничения?</div>
-                    <div class="faq-answer">В рамках пакета «Тест-драйв» каждый новый пользователь получает 10 бесплатных кредитов на генерацию. Вы сможете полноценно протестировать весь функционал, оценить скорость работы искусственного интеллекта и скачать готовые изображения без водяных знаков для проверки на маркетплейсе. Данные карты для активации не требуются.</div>
-                </div>
-
-                <div class="faq-item">
-                    <div class="faq-question">В каком разрешении сохраняются готовые файлы?</div>
-                    <div class="faq-answer">Все изображения экспортируются в высоком разрешении (1080×1440 px), что полностью покрывает и превышает минимальные системные требования Wildberries. Карточки выглядят максимально четкими как на экранах мобильных телефонов в приложении WB, так и на десктопной версии сайта.</div>
+                    <div class="faq-question">Могу ли я настроить расположение текста самостоятельно?</div>
+                    <div class="faq-answer">Да, система предлагает автоматическую умную раскладку, но вы всегда можете скорректировать финальное положение элементов, отредактировать надписи или заменить иконки в удобном визуальном редакторе.</div>
                 </div>
             </div>
         </section>
 
-        <!-- ===== FINAL CTA ===== -->
+        <!-- ===== CTA ===== -->
         <section class="cta-section">
-            <h2>Начните упаковывать ваши товары на WB в 10 раз дешевле фрилансеров</h2>
-            <p>Тестовый доступ уже активен. Просто загрузите фото вашего продукта и заберите готовую инфографику в формате 3:4 через 30 секунд. Без скрытых подписок.</p>
-            <button class="primary">Создать карточку товара бесплатно</button>
+            <h2>Освободите время для развития бизнеса, а графику доверьте ИИ</h2>
+            <p>Начните с 10 бесплатных карточек прямо сейчас и оцените скорость генерации.</p>
+            <button class="primary">Запустить генератор бесплатно</button>
         </section>
 
-        <!-- ===== FOOTER ===== -->
         <footer>
-            <p>© 2026 Bitiy Pixel. Автоматическое создание инфографики и оптимизация контента для селлеров Wildberries и других маркетплейсов.</p>
+            <p>© 2026 Bitiy Pixel. Умные ИИ-решения для контента на маркетплейсах.</p>
         </footer>
     </div>
 </body>

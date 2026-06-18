@@ -1,0 +1,924 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Инфографика для Ozon | Bitiy Pixel</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            line-height: 1.6;
+            color: #1a1a1a;
+            background: #ffffff;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* ===== HERO SECTION ===== */
+        header {
+            padding: 80px 0 60px;
+            border-bottom: 1px solid #e5e5e5;
+            margin-bottom: 80px;
+        }
+
+        .logo {
+            font-size: 14px;
+            font-weight: 600;
+            color: #1a1a1a;
+            margin-bottom: 50px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        h1 {
+            font-size: 56px;
+            font-weight: 600;
+            line-height: 1.15;
+            margin-bottom: 32px;
+            color: #1a1a1a;
+        }
+
+        .hero-subtitle {
+            font-size: 18px;
+            line-height: 1.7;
+            color: #555555;
+            margin-bottom: 32px;
+        }
+
+        .hero-highlight {
+            background: #f5f5f5;
+            border-left: 4px solid #1a1a1a;
+            padding: 20px 24px;
+            margin: 32px 0;
+            border-radius: 4px;
+        }
+
+        .hero-highlight strong {
+            font-weight: 600;
+            display: block;
+            margin-bottom: 8px;
+            color: #1a1a1a;
+        }
+
+        .hero-highlight p {
+            font-size: 16px;
+            line-height: 1.6;
+            color: #666666;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 16px;
+            margin-top: 40px;
+            flex-wrap: wrap;
+        }
+
+        button {
+            padding: 14px 32px;
+            font-size: 16px;
+            border-radius: 6px;
+            border: 2px solid #1a1a1a;
+            background: #ffffff;
+            color: #1a1a1a;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.2s;
+            text-align: center;
+        }
+
+        button.primary {
+            background: #1a1a1a;
+            color: #ffffff;
+        }
+
+        button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+
+        /* ===== SECTIONS ===== */
+        section {
+            margin-bottom: 100px;
+        }
+
+        h2 {
+            font-size: 40px;
+            font-weight: 600;
+            margin-bottom: 24px;
+            color: #1a1a1a;
+        }
+
+        .section-subtitle {
+            font-size: 18px;
+            color: #555555;
+            margin-bottom: 40px;
+            line-height: 1.7;
+        }
+
+        /* ===== HOW IT WORKS ===== */
+        .steps-grid {
+            display: grid;
+            gap: 48px;
+            margin-bottom: 50px;
+        }
+
+        .step-card {
+            display: grid;
+            grid-template-columns: 60px 1fr;
+            gap: 24px;
+        }
+
+        .step-number {
+            width: 60px;
+            height: 60px;
+            background: #f0f0f0;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 28px;
+            font-weight: 700;
+            color: #1a1a1a;
+            flex-shrink: 0;
+        }
+
+        .step-content h3 {
+            font-size: 20px;
+            font-weight: 600;
+            margin-bottom: 12px;
+            color: #1a1a1a;
+        }
+
+        .step-content p {
+            color: #666666;
+            font-size: 16px;
+            line-height: 1.6;
+        }
+
+        .step-content .problem-list {
+            margin-top: 16px;
+            padding: 16px;
+            background: #f9f9f9;
+            border-radius: 6px;
+            font-size: 14px;
+            color: #555555;
+            line-height: 1.6;
+        }
+
+        /* ===== BEFORE-AFTER ===== */
+        .before-after-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 24px;
+            margin-bottom: 40px;
+        }
+
+        .before-after-item {
+            background: #f5f5f5;
+            border-radius: 8px;
+            overflow: hidden;
+            aspect-ratio: 9/12;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 14px;
+            color: #999;
+            font-weight: 500;
+        }
+
+        .before-after-label {
+            text-align: center;
+            margin-top: 12px;
+            font-weight: 600;
+            font-size: 14px;
+            color: #1a1a1a;
+        }
+
+        .before-after-result {
+            background: #f0f7ff;
+            padding: 16px;
+            border-radius: 6px;
+            margin-top: 16px;
+            font-size: 14px;
+            color: #0066cc;
+            font-weight: 500;
+        }
+
+        /* ===== BENEFITS ===== */
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 32px;
+            margin-bottom: 40px;
+        }
+
+        .benefit-card {
+            padding: 32px;
+            background: #f9f9f9;
+            border-radius: 8px;
+            border: 1px solid #e5e5e5;
+        }
+
+        .benefit-icon {
+            font-size: 32px;
+            margin-bottom: 16px;
+        }
+
+        .benefit-card h3 {
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 12px;
+            color: #1a1a1a;
+        }
+
+        .benefit-card p {
+            color: #666666;
+            font-size: 15px;
+            line-height: 1.6;
+        }
+
+        /* ===== PRICING ===== */
+        .pricing-cards {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+            margin-bottom: 40px;
+        }
+
+        .pricing-card {
+            padding: 32px;
+            border: 1px solid #e5e5e5;
+            border-radius: 8px;
+            text-align: center;
+        }
+
+        .pricing-card.featured {
+            border: 2px solid #1a1a1a;
+            background: #f9f9f9;
+        }
+
+        .pricing-card h3 {
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 16px;
+            color: #1a1a1a;
+        }
+
+        .pricing-value {
+            font-size: 36px;
+            font-weight: 700;
+            margin: 16px 0;
+            color: #1a1a1a;
+        }
+
+        .pricing-card ul {
+            list-style: none;
+            margin: 24px 0;
+            text-align: left;
+        }
+
+        .pricing-card li {
+            padding: 8px 0;
+            font-size: 14px;
+            color: #666666;
+            border-bottom: 1px solid #e5e5e5;
+        }
+
+        .pricing-card li:last-child {
+            border-bottom: none;
+        }
+
+        .pricing-card button {
+            width: 100%;
+            margin-top: 24px;
+        }
+
+        /* ===== REQUIREMENTS TABLE ===== */
+        .table-wrapper {
+            overflow-x: auto;
+            margin: 40px 0;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 15px;
+        }
+
+        th {
+            text-align: left;
+            padding: 16px;
+            font-weight: 600;
+            background: #f5f5f5;
+            border-bottom: 2px solid #e5e5e5;
+            color: #1a1a1a;
+        }
+
+        td {
+            padding: 16px;
+            border-bottom: 1px solid #e5e5e5;
+            color: #666666;
+        }
+
+        tr:last-child td {
+            border-bottom: none;
+        }
+
+        /* ===== TESTIMONIALS ===== */
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 32px;
+        }
+
+        .testimonial {
+            padding: 32px;
+            background: #f9f9f9;
+            border-radius: 8px;
+            border: 1px solid #e5e5e5;
+        }
+
+        .testimonial-header {
+            display: flex;
+            gap: 16px;
+            margin-bottom: 20px;
+        }
+
+        .testimonial-avatar {
+            width: 48px;
+            height: 48px;
+            background: #1a1a1a;
+            color: #ffffff;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 600;
+            font-size: 16px;
+            flex-shrink: 0;
+        }
+
+        .testimonial-info h4 {
+            font-size: 15px;
+            font-weight: 600;
+            color: #1a1a1a;
+            margin-bottom: 4px;
+        }
+
+        .testimonial-info p {
+            font-size: 13px;
+            color: #999;
+        }
+
+        .testimonial-text {
+            font-size: 16px;
+            line-height: 1.6;
+            color: #333;
+            margin-bottom: 16px;
+            font-style: italic;
+        }
+
+        .testimonial-result {
+            font-size: 14px;
+            font-weight: 600;
+            color: #0066cc;
+            padding-top: 16px;
+            border-top: 1px solid #e5e5e5;
+        }
+
+        /* ===== FAQ ===== */
+        .faq-grid {
+            display: grid;
+            gap: 32px;
+        }
+
+        .faq-item {
+            padding-bottom: 24px;
+            border-bottom: 1px solid #e5e5e5;
+        }
+
+        .faq-item:last-child {
+            border-bottom: none;
+        }
+
+        .faq-question {
+            font-size: 18px;
+            font-weight: 600;
+            color: #1a1a1a;
+            margin-bottom: 12px;
+        }
+
+        .faq-answer {
+            color: #666666;
+            font-size: 16px;
+            line-height: 1.7;
+        }
+
+        /* ===== CTA SECTION ===== */
+        .cta-section {
+            text-align: center;
+            padding: 80px 40px;
+            background: #f5f5f5;
+            border-radius: 8px;
+            margin: 100px 0;
+        }
+
+        .cta-section h2 {
+            margin-bottom: 24px;
+        }
+
+        .cta-section p {
+            font-size: 18px;
+            color: #666666;
+            margin-bottom: 40px;
+        }
+
+        .cta-section button {
+            font-size: 18px;
+            padding: 18px 48px;
+        }
+
+        /* ===== FOOTER ===== */
+        footer {
+            padding: 40px 0;
+            text-align: center;
+            font-size: 14px;
+            color: #999;
+            border-top: 1px solid #e5e5e5;
+        }
+
+        /* ===== ARTIFACT LABELS ===== */
+        .artifact-label {
+            font-size: 12px;
+            font-weight: 600;
+            color: #999;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 24px;
+            display: block;
+        }
+
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 36px;
+            }
+
+            h2 {
+                font-size: 28px;
+            }
+
+            .benefits-grid,
+            .pricing-cards,
+            .before-after-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .step-card {
+                grid-template-columns: 50px 1fr;
+            }
+
+            .step-number {
+                width: 50px;
+                height: 50px;
+            }
+
+            .hero-buttons {
+                flex-direction: column;
+            }
+
+            button {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- ===== HERO ===== -->
+        <header>
+            <div class="logo">Bitiy Pixel</div>
+            <h1>Создавайте инфографику для Ozon за 60 секунд с помощью AI</h1>
+            
+            <p class="hero-subtitle">
+                Ozon требует до 15 фото на карточку, rich-контент и профессиональный дизайн. Дизайнеры дорогие и медленные. Разбираться в нейросетях сложно и дорого, сложно поддерживать единый стиль на фотографиях. Bitiy Pixel создаёт карточки товаров для Ozon автоматически — загрузите фото и получите готовую инфографику.
+            </p>
+
+            <div class="hero-highlight">
+                <strong>Почему Bitiy Pixel работает лучше всех:</strong>
+                <p>Ozon требует до 15 фото на каждую карточку, формат 3:4 (1080×1440 px), rich-контент для выхода в топ и профессиональное оформление. Bitiy Pixel — это AI-сервис, специально обученный под все требования Ozon. Вам не нужно разбираться в нейросетях, писать сложные промпты или изучать дизайн. Всё уже подготовлено. Вы просто загружаете фото и получаете готовую карточку, соответствующую всем требованиям площадки. Процесс займет всего 60 секунд.</p>
+            </div>
+
+            <div class="hero-buttons">
+                <button class="primary">Попробовать бесплатно</button>
+                <button>Посмотреть примеры</button>
+            </div>
+        </header>
+
+        <!-- ===== HOW IT WORKS ===== -->
+        <section>
+            <span class="artifact-label">Как работает</span>
+            <h2>Как работает Bitiy Pixel?</h2>
+
+            <div class="steps-grid">
+                <div class="step-card">
+                    <div class="step-number">1</div>
+                    <div class="step-content">
+                        <h3>Загрузите фото товара</h3>
+                        <p>Загрузите фотографию вашего товара в систему. Bitiy Pixel автоматически обрабатывает изображение и готовит его для генерации инфографики.</p>
+                        <div class="problem-list">
+                            <strong>Решаемые проблемы:</strong><br>
+                            • Удаление фона и его замена на нужный<br>
+                            • Наложение необходимого цвета<br>
+                            • Улучшение качества и резкости фото
+                        </div>
+                    </div>
+                </div>
+
+                <div class="step-card">
+                    <div class="step-number">2</div>
+                    <div class="step-content">
+                        <h3>AI добавляет инфографику</h3>
+                        <p>Система анализирует товар и генерирует профессиональную инфографику на основе готовых макетов, адаптированных под требования Ozon.</p>
+                        <div class="problem-list">
+                            <strong>Решаемые проблемы:</strong><br>
+                            • Готовые макеты соответствуют требованиям Ozon<br>
+                            • Единый стиль для всего каталога<br>
+                            • Привлекательная визуализация
+                        </div>
+                    </div>
+                </div>
+
+                <div class="step-card">
+                    <div class="step-number">3</div>
+                    <div class="step-content">
+                        <h3>Генерация фонового изображения</h3>
+                        <p>Выберите нужный стиль, и AI создаст идеальный фон для вашей карточки, который подчеркнёт достоинства товара.</p>
+                        <div class="problem-list">
+                            <strong>Решаемые проблемы:</strong><br>
+                            • Неограниченные варианты фонов<br>
+                            • Генерация в нужном стиле (минимализм, ярко, строгое и т.д.)<br>
+                            • Автоматическая адаптация под товар
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div style="background: #f0f4ff; padding: 24px; border-radius: 8px; border-left: 4px solid #0066cc; margin: 40px 0;">
+                <h3 style="font-size: 18px; margin-bottom: 12px; color: #1a1a1a;">Готовая карточка за 60 секунд</h3>
+                <p style="color: #666666; margin-bottom: 12px;">После загрузки фото и выбора стиля система автоматически генерирует полностью готовую карточку товара для Ozon. Она соответствует всем требованиям площадки и готова к загрузке.</p>
+                <p style="color: #666666; font-weight: 500;">Главное преимущество: вам не нужно разбираться в нейросетях, писать сложные промпты или изучать дизайн. Bitiy Pixel уже всё это подготовил за вас. Вы получаете результат, готовый к использованию.</p>
+            </div>
+
+            <div style="text-align: center; margin-top: 50px;">
+                <button class="primary">Попробовать бесплатно</button>
+            </div>
+        </section>
+
+        <!-- ===== BEFORE-AFTER ===== -->
+        <section>
+            <span class="artifact-label">Реальные примеры</span>
+            <h2>Реальное улучшение карточек</h2>
+            <p class="section-subtitle">Посмотрите, как Bitiy Pixel превращает обычные фото в профессиональные карточки товаров</p>
+
+            <div class="before-after-grid">
+                <div>
+                    <div class="before-after-item">ФОТО ДО ОБРАБОТКИ</div>
+                    <div class="before-after-label">До использования Bitiy Pixel</div>
+                </div>
+                <div>
+                    <div class="before-after-item" style="background: #e8f4f8;">КАРТОЧКА ПОСЛЕ ОБРАБОТКИ</div>
+                    <div class="before-after-label">После Bitiy Pixel</div>
+                </div>
+            </div>
+
+            <div class="before-after-result">
+                ✓ Результат: +45% конверсии | Позиция в поиске выше | Больше просмотров
+            </div>
+
+            <div class="before-after-grid" style="margin-top: 40px;">
+                <div>
+                    <div class="before-after-item">ФОТО ДО ОБРАБОТКИ</div>
+                    <div class="before-after-label">До использования Bitiy Pixel</div>
+                </div>
+                <div>
+                    <div class="before-after-item" style="background: #f0f8e8;">КАРТОЧКА ПОСЛЕ ОБРАБОТКИ</div>
+                    <div class="before-after-label">После Bitiy Pixel</div>
+                </div>
+            </div>
+
+            <div class="before-after-result">
+                ✓ Результат: +60% просмотров | Выше в рекомендациях | Больше заказов
+            </div>
+        </section>
+
+        <!-- ===== THREE STEPS ===== -->
+        <section>
+            <span class="artifact-label">Три простых шага</span>
+            <h2>Как сделать карточку товара?</h2>
+            <p class="section-subtitle">От загрузки фото до готовой AI-карточки для Ozon — всё это займёт менее минуты</p>
+
+            <div class="steps-grid">
+                <div class="step-card">
+                    <div class="step-number">1</div>
+                    <div class="step-content">
+                        <h3>Зарегистрируйтесь</h3>
+                        <p>Создайте аккаунт на Bitiy Pixel. Регистрация займёт всего около 30 секунд. Это займёт минимум вашего времени.</p>
+                    </div>
+                </div>
+
+                <div class="step-card">
+                    <div class="step-number">2</div>
+                    <div class="step-content">
+                        <h3>Загрузите фото и выберите стиль</h3>
+                        <p>Загрузите фотографию товара, выберите подходящий стиль обработки и параметры из предложенных вариантов.</p>
+                    </div>
+                </div>
+
+                <div class="step-card">
+                    <div class="step-number">3</div>
+                    <div class="step-content">
+                        <h3>Получите готовую карточку</h3>
+                        <p>Через 30 секунд AI создаст профессиональную карточку товара, готовую к загрузке в Ozon. Просто скачайте и используйте.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== PRICING ===== -->
+        <section style="background: linear-gradient(135deg, #e8eeff 0%, #f0f4ff 100%); padding: 80px 40px; border-radius: 8px; margin-bottom: 100px;">
+            <span class="artifact-label">Тарифы</span>
+            <h2 style="text-align: center; margin-bottom: 16px;">Выберите пакет</h2>
+            <p class="section-subtitle" style="text-align: center;">Создавайте профессиональные карточки для маркетплейсов.<br>Первая генерация — бесплатно.</p>
+
+            <div class="pricing-cards" style="margin-top: 50px;">
+                <div class="pricing-card" style="background: white; border: 1px solid #e5e5e5;">
+                    <h3>Лайт</h3>
+                    <div class="pricing-value">1 490 ₽</div>
+                    <p style="color: #999; font-size: 14px; margin-bottom: 12px;">~29 ₽ за карточку</p>
+                    <ul>
+                        <li>✓ Создание по шаблону</li>
+                        <li>✓ Анализ конкурентов</li>
+                        <li>✓ AI-правки</li>
+                        <li>✓ Изменение выделенной области</li>
+                        <li>✓ Стили карточек</li>
+                        <li>✓ Кредиты не сгорают</li>
+                        <li>✓ История генераций — 14 дней</li>
+                    </ul>
+                    <button style="width: 100%; margin-top: 24px;">Выбрать Лайт</button>
+                </div>
+
+                <div class="pricing-card" style="background: white; border: 1px solid #e5e5e5;">
+                    <h3>Стандарт</h3>
+                    <div class="pricing-value">2 990 ₽</div>
+                    <p style="color: #999; font-size: 14px; margin-bottom: 12px;">~24 ₽ за карточку</p>
+                    <ul>
+                        <li>✓ Все возможности Лайт</li>
+                        <li>✓ Карточка под ключ</li>
+                        <li>✓ AI-фото по описанию</li>
+                        <li>✓ Разрешающее оформление</li>
+                        <li>✓ Фото для одежды</li>
+                        <li>✓ Видео-обложка товара</li>
+                        <li>✓ Массовая генерация по шаблону</li>
+                        <li>✓ История генераций — 30 дней</li>
+                    </ul>
+                    <button style="width: 100%; margin-top: 24px;">Выбрать Стандарт</button>
+                </div>
+
+                <div class="pricing-card featured" style="background: white; border: 2px solid #0066cc; position: relative; transform: scale(1.05); box-shadow: 0 8px 24px rgba(0, 102, 204, 0.15);">
+                    <div style="position: absolute; top: -12px; right: 20px; background: linear-gradient(135deg, #0066cc 0%, #0052a3 100%); color: white; padding: 6px 16px; border-radius: 20px; font-size: 12px; font-weight: 600;">Самый популярный</div>
+                    <h3 style="margin-top: 16px;">Про</h3>
+                    <div class="pricing-value">4 990 ₽</div>
+                    <p style="color: #999; font-size: 14px; margin-bottom: 12px;">~19 ₽ за карточку</p>
+                    <ul>
+                        <li>✓ Все возможности Стандарт</li>
+                        <li>✓ Массовая генерация</li>
+                        <li>✓ По примеру конкурентов</li>
+                        <li>✓ Генерация по нише</li>
+                        <li>✓ Скидка на кредиты</li>
+                        <li>✓ История генераций — бесплатно</li>
+                    </ul>
+                    <button class="primary" style="width: 100%; margin-top: 24px;">Выбрать Про</button>
+                </div>
+
+                <div class="pricing-card" style="background: white; border: 1px solid #e5e5e5;">
+                    <h3>Бизнес</h3>
+                    <div class="pricing-value">7 990 ₽</div>
+                    <p style="color: #999; font-size: 14px; margin-bottom: 12px;">~14 ₽ за карточку</p>
+                    <ul>
+                        <li>✓ Все возможности Про</li>
+                        <li>✓ Rich-контент</li>
+                        <li>✓ Конструктор шаблона</li>
+                        <li>✓ История генераций — бесплатно</li>
+                        <li>✓ Приоритетная очередь генерации</li>
+                        <li>✓ Приоритетная поддержка</li>
+                        <li>✓ Ранний доступ к Beta-фичам</li>
+                    </ul>
+                    <button style="width: 100%; margin-top: 24px;">Выбрать Бизнес</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== REQUIREMENTS ===== -->
+        <section>
+            <span class="artifact-label">Требования Ozon</span>
+            <h2>С какими проблемами сталкиваются продавцы Ozon?</h2>
+            <p class="section-subtitle">У Ozon самые большие требования к карточкам товаров. Наш AI-инструмент Bitiy Pixel уже с ними знаком и автоматически создаёт готовые карточки под все эти требования.</p>
+
+            <div class="table-wrapper">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Параметр</th>
+                            <th>Требование Ozon</th>
+                            <th>Bitiy Pixel</th>
+                            <th>Статус</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Соотношение сторон</td>
+                            <td>3:4</td>
+                            <td>3:4</td>
+                            <td>✓ Соответствует</td>
+                        </tr>
+                        <tr>
+                            <td>Минимальное разрешение</td>
+                            <td>1000×1333 px</td>
+                            <td>1080×1440 px</td>
+                            <td>✓ Превышает</td>
+                        </tr>
+                        <tr>
+                            <td>Максимум фото</td>
+                            <td>До 15 изображений</td>
+                            <td>Поддержка всех 15</td>
+                            <td>✓ Полная поддержка</td>
+                        </tr>
+                        <tr>
+                            <td>Рич-контент</td>
+                            <td>Требуется для Premium</td>
+                            <td>Встроенный конструктор</td>
+                            <td>✓ Включен</td>
+                        </tr>
+                        <tr>
+                            <td>Формат файла</td>
+                            <td>JPG, PNG</td>
+                            <td>PNG, JPG</td>
+                            <td>✓ Оба формата</td>
+                        </tr>
+                        <tr>
+                            <td>Модерация</td>
+                            <td>Автоматическая проверка</td>
+                            <td>100% проходит</td>
+                            <td>✓ Проверено</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- ===== BENEFITS ===== -->
+        <section>
+            <h2>Почему выбирают Bitiy Pixel</h2>
+
+            <div class="benefits-grid">
+                <div class="benefit-card">
+                    <div class="benefit-icon">⚡</div>
+                    <h3>Экономия времени</h3>
+                    <p>Создание карточки занимает всего несколько секунд. Вам не нужно искать дизайнера, ждать правок или разбираться в сложных программах.</p>
+                </div>
+
+                <div class="benefit-card">
+                    <div class="benefit-icon">🎨</div>
+                    <h3>Интуитивный интерфейс</h3>
+                    <p>Простая и понятная система без сложных настроек. Даже если вы не знакомы с дизайном, вы легко создадите профессиональную карточку.</p>
+                </div>
+
+                <div class="benefit-card">
+                    <div class="benefit-icon">💰</div>
+                    <h3>Значительная экономия</h3>
+                    <p>В разы дешевле, чем услуги профессионального дизайнера. При каталоге из 100 товаров сэкономите от 50 000 рублей и больше.</p>
+                </div>
+
+                <div class="benefit-card">
+                    <div class="benefit-icon">✨</div>
+                    <h3>Премиум качество</h3>
+                    <p>Яркие и профессиональные изображения, которые соответствуют всем требованиям маркетплейсов. Выглядит как работа профессионала.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== TESTIMONIALS ===== -->
+        <section>
+            <h2>Отзывы селлеров</h2>
+
+            <div class="testimonials-grid">
+                <div class="testimonial">
+                    <div class="testimonial-header">
+                        <div class="testimonial-avatar">АМ</div>
+                        <div class="testimonial-info">
+                            <h4>Алексей Морозов</h4>
+                            <p>Магазин электроники, Ozon</p>
+                        </div>
+                    </div>
+                    <div class="testimonial-text">"Раньше платили дизайнеру 500 ₽ за карточку. Сейчас генерируем через Bitiy Pixel за 19 ₽. За месяц инфографика улучшила конверсию на 35%."</div>
+                    <div class="testimonial-result">Экономия: 50 000 ₽/месяц | Рост конверсии: +35%</div>
+                </div>
+
+                <div class="testimonial">
+                    <div class="testimonial-header">
+                        <div class="testimonial-avatar">ЕБ</div>
+                        <div class="testimonial-info">
+                            <h4>Екатерина Белова</h4>
+                            <p>Спортивное питание, Ozon</p>
+                        </div>
+                    </div>
+                    <div class="testimonial-text">"Попробовали бесплатную генерацию — сразу увидели результат. Карточки прошли модерацию с первой попытки. Перешли на тариф Про."</div>
+                    <div class="testimonial-result">Рост CTR на фото: +45% | Позиция в поиске выше</div>
+                </div>
+
+                <div class="testimonial">
+                    <div class="testimonial-header">
+                        <div class="testimonial-avatar">ДТ</div>
+                        <div class="testimonial-info">
+                            <h4>Дмитрий Токарев</h4>
+                            <p>Товары для дома, Wildberries</p>
+                        </div>
+                    </div>
+                    <div class="testimonial-text">"Использую для Ozon и Wildberries одновременно. AI подхватывает требования разных платформ. Очень удобно и экономно."</div>
+                    <div class="testimonial-result">Охват: +60% продаж | Время на обработку: -90%</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== FAQ ===== -->
+        <section>
+            <h2>Часто задаваемые вопросы</h2>
+
+            <div class="faq-grid">
+                <div class="faq-item">
+                    <div class="faq-question">Как ваш сервис помогает увеличить продажи?</div>
+                    <div class="faq-answer">Bitiy Pixel создаёт профессиональные карточки товаров с привлекательными фонами и инфографикой, которые сразу привлекают внимание покупателей и побуждают их совершить покупку. Красивая карточка — первый шаг к продаже.</div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">Могу ли я использовать свои изображения для создания уникальных карточек?</div>
+                    <div class="faq-answer">Конечно! Вы можете загружать собственные фотографии товаров, а также использовать свои изображения для фонов. Это позволит выделиться среди конкурентов. Также вы можете генерировать фоны прямо в нашем сервисе на нужный вам стиль.</div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">Что произойдёт, если я исчерпаю лимит генераций на тарифе?</div>
+                    <div class="faq-answer">Вы всегда можете легко перейти на более подходящий тариф, чтобы продолжить создавать карточки без ограничений. Переход занимает буквально несколько секунд. Если у вас есть вопросы, наша поддержка в Telegram всегда готова помочь.</div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">Подходит ли ваш сервис для всех маркетплейсов?</div>
+                    <div class="faq-answer">Да, наши шаблоны и алгоритмы соответствуют требованиям всех популярных маркетплейсов — Ozon, Wildberries, Яндекс Маркет и других. Система автоматически адаптирует карточку под нужный формат.</div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">Как работает бесплатный тариф?</div>
+                    <div class="faq-answer">На бесплатном тарифе вы получаете одну полностью функциональную карточку для генерации. Это позволит вам понять, как работает наш инструмент и оценить качество результата. После этого вы сможете выбрать подходящий платный план.</div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">Что делать, если у меня остались вопросы?</div>
+                    <div class="faq-answer">Вы можете оставить заявку через форму обратной связи или связаться с нашей командой в Telegram. Оператор быстро ответит на все ваши вопросы и поможет с настройкой.</div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">Как долго обрабатывается фото перед генерацией карточки?</div>
+                    <div class="faq-answer">Весь процесс от загрузки до готовой карточки занимает всего 30-60 секунд. Система работает в режиме реального времени, поэтому вы сразу видите результат и можете скачать файл.</div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">Можно ли редактировать готовую карточку после генерации?</div>
+                    <div class="faq-answer">Готовые карточки полностью готовы к использованию, но вы также можете немного доработать их в любом редакторе (Photoshop, Figma, Paint и т.д.). Однако в большинстве случаев дополнительные правки не требуются.</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== FINAL CTA ===== -->
+        <section class="cta-section">
+            <h2>Начните создавать карточки прямо сейчас</h2>
+            <p>Первая генерация полностью бесплатна. Просто загрузите фото и посмотрите результат за 60 секунд. Никаких скрытых платежей и подписок.</p>
+            <button class="primary">Попробовать бесплатно</button>
+        </section>
+
+        <!-- ===== FOOTER ===== -->
+        <footer>
+            <p>© 2026 Bitiy Pixel. Создание инфографики для маркетплейсов Ozon, Wildberries, Яндекс Маркет и других платформ.</p>
+        </footer>
+    </div>
+</body>
+</html>

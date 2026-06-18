@@ -1,0 +1,538 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Карточка под ключ - Bitiy Pixel (Макет v3)</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; line-height: 1.6; color: #333; }
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+        
+        /* HERO SECTION */
+        .hero {
+            background: linear-gradient(135deg, #c6d1ea 0%, #e6ecf8 100%);
+            padding: 80px 20px;
+            text-align: center;
+        }
+        .hero h1 {
+            font-size: 2.5em;
+            margin-bottom: 15px;
+            color: #1a1a1a;
+            font-weight: 700;
+        }
+        .hero p {
+            font-size: 1.2em;
+            color: #555;
+            margin-bottom: 30px;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .hero-description {
+            background: white;
+            max-width: 700px;
+            margin: 0 auto 40px;
+            padding: 25px;
+            border-radius: 8px;
+            border-left: 4px solid #7c8dd4;
+            text-align: left;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+        .hero-description strong {
+            color: #7c8dd4;
+            font-size: 1.05em;
+        }
+        .hero-description ul {
+            list-style: none;
+            margin-left: 20px;
+            margin-top: 12px;
+        }
+        .hero-description li {
+            position: relative;
+            padding-left: 20px;
+            margin-bottom: 8px;
+        }
+        .hero-description li:before {
+            content: "•";
+            position: absolute;
+            left: 0;
+            color: #7c8dd4;
+            font-weight: bold;
+        }
+        .cta-buttons {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-bottom: 20px;
+        }
+        .btn {
+            padding: 12px 30px;
+            border-radius: 6px;
+            font-size: 1em;
+            font-weight: 600;
+            cursor: pointer;
+            border: none;
+            text-decoration: none;
+            display: inline-block;
+        }
+        .btn-primary {
+            background: #7c8dd4;
+            color: white;
+        }
+        .btn-secondary {
+            background: white;
+            color: #7c8dd4;
+            border: 2px solid #7c8dd4;
+        }
+        
+        /* RESULTS BLOCK */
+        .results {
+            padding: 60px 20px;
+            background: #f9f9f9;
+        }
+        .results h2 {
+            text-align: center;
+            margin-bottom: 40px;
+            font-size: 2em;
+        }
+        .metrics {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 30px;
+        }
+        .metric {
+            text-align: center;
+            padding: 30px;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+        .metric-num {
+            font-size: 2.5em;
+            font-weight: 700;
+            color: #7c8dd4;
+            margin-bottom: 10px;
+        }
+        .metric-text {
+            font-size: 0.95em;
+            color: #666;
+            line-height: 1.5;
+        }
+        
+        /* SITUATIONS BLOCK */
+        .situations {
+            padding: 60px 20px;
+            background: #f9f9f9;
+        }
+        .situations h2 {
+            text-align: center;
+            margin-bottom: 40px;
+            font-size: 2em;
+        }
+        .situations-content {
+            max-width: 1000px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+        .situation-card {
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+        .situation-card h3 {
+            color: #7c8dd4;
+            margin-bottom: 15px;
+            font-size: 1.1em;
+        }
+        .situation-card .label {
+            font-weight: 600;
+            color: #333;
+            margin-top: 15px;
+            margin-bottom: 8px;
+            font-size: 0.9em;
+        }
+        .situation-card p {
+            font-size: 0.95em;
+            color: #666;
+            line-height: 1.6;
+            margin-bottom: 10px;
+        }
+        
+        /* FEATURES */
+        .features {
+            padding: 60px 20px;
+        }
+        .features h2 {
+            text-align: center;
+            margin-bottom: 40px;
+            font-size: 2em;
+        }
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+        .feature-card {
+            padding: 30px;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            text-align: center;
+        }
+        .feature-card h3 {
+            margin-bottom: 15px;
+            color: #7c8dd4;
+        }
+        
+        /* HOW IT WORKS */
+        .how-works {
+            padding: 60px 20px;
+            background: #f9f9f9;
+        }
+        .how-works h2 {
+            text-align: center;
+            margin-bottom: 40px;
+            font-size: 2em;
+        }
+        .steps {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        .step {
+            margin-bottom: 30px;
+            padding: 25px;
+            background: white;
+            border-radius: 8px;
+            border-left: 4px solid #7c8dd4;
+        }
+        .step-num {
+            display: inline-block;
+            background: #7c8dd4;
+            color: white;
+            width: 35px;
+            height: 35px;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 35px;
+            font-weight: 700;
+            margin-right: 15px;
+        }
+        .step-title {
+            font-weight: 600;
+            color: #1a1a1a;
+            display: inline-block;
+        }
+        .step-desc {
+            margin-top: 10px;
+            color: #666;
+            font-size: 0.95em;
+        }
+        
+        /* FAQ */
+        .faq {
+            padding: 60px 20px;
+        }
+        .faq h2 {
+            text-align: center;
+            margin-bottom: 40px;
+            font-size: 2em;
+        }
+        .faq-list {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        .faq-item {
+            margin-bottom: 20px;
+            border-bottom: 1px solid #ddd;
+            padding-bottom: 20px;
+        }
+        .faq-question {
+            font-weight: 600;
+            color: #7c8dd4;
+            margin-bottom: 10px;
+            cursor: pointer;
+        }
+        .faq-answer {
+            color: #666;
+            font-size: 0.95em;
+            line-height: 1.7;
+        }
+        
+        /* FINAL CTA */
+        .final-cta {
+            background: linear-gradient(135deg, #7c8dd4 0%, #5a6ba8 100%);
+            color: white;
+            padding: 80px 20px;
+            text-align: center;
+        }
+        .final-cta h2 {
+            font-size: 2.2em;
+            margin-bottom: 20px;
+        }
+        .final-cta p {
+            font-size: 1.1em;
+            margin-bottom: 40px;
+            opacity: 0.9;
+        }
+        .final-cta-buttons {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        .btn-light {
+            background: white;
+            color: #7c8dd4;
+        }
+        
+        /* FOOTER */
+        footer {
+            background: #333;
+            color: white;
+            padding: 30px 20px;
+            text-align: center;
+            font-size: 0.9em;
+        }
+    </style>
+</head>
+<body>
+
+<!-- HERO SECTION -->
+<section class="hero">
+    <div class="container">
+        <h1>Карточка товара под ключ</h1>
+        <p>Полная автоматизация создания карточки товара. Вы загружаете одно фото — AI анализирует конкурентов на WB/Ozon, составляет SEO-тексты (заголовок, описание, буллеты) и генерирует все фото для карточки. Полная демонстрация работает за около минуты.</p>
+        
+        <!-- TOOL DESCRIPTION -->
+        <div class="hero-description">
+            <strong>«Карточка под ключ» — это самый мощный инструмент Bitiy Pixel.</strong>
+            <p style="margin-top: 12px;">Вместо ручной работы над каждым элементом карточки, AI делает всё за вас:</p>
+            <ul>
+                <li>Анализирует нишу и конкурентов</li>
+                <li>Подбирает ключевые слова</li>
+                <li>Генерирует SEO-тексты</li>
+                <li>Создаёт все фото</li>
+            </ul>
+            <p style="margin-top: 15px; font-size: 0.95em; color: #666;"><strong>Стоимость:</strong> 10 кр. за анализ + генерация фото. Доступно на тарифе «Стандарт» и выше.</p>
+        </div>
+        
+        <div class="cta-buttons">
+            <button class="btn btn-primary">Попробовать бесплатно</button>
+            <button class="btn btn-secondary">Смотреть демо</button>
+        </div>
+    </div>
+</section>
+
+<!-- RESULTS BLOCK -->
+<section class="results">
+    <div class="container">
+        <h2>Результаты реальных клиентов</h2>
+        <div class="metrics">
+            <div class="metric">
+                <div class="metric-num">1000+</div>
+                <div class="metric-text">Селлеров уже работают с нами</div>
+            </div>
+            <div class="metric">
+                <div class="metric-num">60 сек</div>
+                <div class="metric-text">От загрузки фото до готовой карточки</div>
+            </div>
+            <div class="metric">
+                <div class="metric-num">20×</div>
+                <div class="metric-text">Дешевле дизайнера на фрилансе</div>
+            </div>
+            <div class="metric">
+                <div class="metric-num">38%</div>
+                <div class="metric-text">Средний рост CTR карточек</div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- SITUATIONS BLOCK (РАСКРЫТО) -->
+<section class="situations">
+    <div class="container">
+        <h2>Решение для вашей ситуации</h2>
+        <div class="situations-content">
+            <div class="situation-card">
+                <h3>🆕 Новичок на Wildberries/Ozon</h3>
+                <div class="label">Проблема:</div>
+                <p>"Не знаю как правильно оформить карточку, боюсь, что карточка не будет конкурировать"</p>
+                <div class="label">Решение:</div>
+                <p>За 60 секунд Bitiy Pixel создаст карточку, основанную на анализе топовых карточек в вашей нише. Вы получите профессиональное оформление с правильными ключевыми словами.</p>
+                <div class="label">Результат:</div>
+                <p>Карточка сразу выглядит как у опытных продавцов. Больше кликов в первые же дни.</p>
+            </div>
+            
+            <div class="situation-card">
+                <h3>📦 Продавец с 50+ товарами</h3>
+                <div class="label">Проблема:</div>
+                <p>"Нужно обновить все карточки, но нанимать дизайнера на месяц — дорого и долго"</p>
+                <div class="label">Решение:</div>
+                <p>Загрузите товары пакетом — система обновит все за несколько часов. Платите 10 кр. за анализ вместо 5000+ за дизайнера.</p>
+                <div class="label">Результат:</div>
+                <p>Все карточки обновлены. Средний прирост CTR +38%.</p>
+            </div>
+            
+            <div class="situation-card">
+                <h3>🎯 Маркетолог/Агентство</h3>
+                <div class="label">Проблема:</div>
+                <p>"Нужно быстро адаптировать карточки под разные бренды и их стили"</p>
+                <div class="label">Решение:</div>
+                <p>Сохраните фирменный стиль в системе. AI будет автоматически применять его ко всем новым карточкам. Генерируйте неограниченное количество вариантов.</p>
+                <div class="label">Результат:</div>
+                <p>Масштабирование без увеличения команды. Каждый клиент получает карточки в едином стиле.</p>
+            </div>
+            
+            <div class="situation-card">
+                <h3>💰 Дропшиппер</h3>
+                <div class="label">Проблема:</div>
+                <p>"Каждый товар требует оформления, бюджет очень маленький"</p>
+                <div class="label">Решение:</div>
+                <p>10 кр. за анализ — это копеечная стоимость. Создаёте столько карточек, сколько нужно. Экономия в 20 раз дешевле фрилансера.</p>
+                <div class="label">Результат:</div>
+                <p>Быстрый старт нового товара. Экономия позволяет больше инвестировать в рекламу.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- FEATURES -->
+<section class="features">
+    <div class="container">
+        <h2>Что входит в «Карточку под ключ»</h2>
+        <div class="feature-grid">
+            <div class="feature-card">
+                <h3>🔍 Анализ конкурентов</h3>
+                <p>AI изучает карточки конкурентов: какие тексты привлекают покупателей, какие характеристики выносят на инфографику, какие визуальные приёмы работают в нише.</p>
+            </div>
+            <div class="feature-card">
+                <h3>✍️ SEO-тексты</h3>
+                <p>Заголовок, описание, ключевые буллеты — всё оптимизировано под поисковые запросы WB и Ozon. Копируете и вставляете в личный кабинет.</p>
+            </div>
+            <div class="feature-card">
+                <h3>🖼️ Готовые фото</h3>
+                <p>Серия слайдов инфографики 3:4 с профессиональным дизайном. Все характеристики, преимущества и размеры — уже на фото.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- HOW IT WORKS -->
+<section class="how-works">
+    <div class="container">
+        <h2>Как работает «Карточка под ключ»</h2>
+        <div class="steps">
+            <div class="step">
+                <span class="step-num">1</span>
+                <span class="step-title">Загрузите фото товара</span>
+                <div class="step-desc">Одно или несколько фото вашего товара. AI определит категорию и ключевые характеристики автоматически.</div>
+            </div>
+            
+            <div class="step">
+                <span class="step-num">2</span>
+                <span class="step-title">AI анализирует конкурентов</span>
+                <div class="step-desc">Сервис изучает топовые карточки в вашей нише на WB/Ozon: какие тексты, характеристики и визуалы используют лидеры.</div>
+            </div>
+            
+            <div class="step">
+                <span class="step-num">3</span>
+                <span class="step-title">Генерация SEO-текстов</span>
+                <div class="step-desc">AI составляет оптимизированный заголовок, описание и буллеты с учётом ключевых запросов вашей ниши.</div>
+            </div>
+            
+            <div class="step">
+                <span class="step-num">4</span>
+                <span class="step-title">Генерация всех фото</span>
+                <div class="step-desc">На основе анализа AI создаёт серию слайдов инфографики с правильными акцентами, характеристиками и преимуществами.</div>
+            </div>
+            
+            <div class="step">
+                <span class="step-num">5</span>
+                <span class="step-title">Скачайте и загрузите</span>
+                <div class="step-desc">Все фото (1080×1440 px, 3:4) + SEO-тексты готовы к загрузке в личный кабинет WB или Ozon.</div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- FAQ -->
+<section class="faq">
+    <div class="container">
+        <h2>Часто задаваемые вопросы</h2>
+        <div class="faq-list">
+            <div class="faq-item">
+                <div class="faq-question">Чем «Карточка под ключ» отличается от обычной инфографики?</div>
+                <div class="faq-answer">Обычная инфографика — это один инструмент для создания слайдов. «Карточка под ключ» — комплексный процесс: AI анализирует конкурентов, составляет SEO-тексты и генерирует все фото автоматически. Вы получаете полностью готовую карточку, а не отдельный слайд.</div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question">Сколько стоит создание карточки под ключ?</div>
+                <div class="faq-answer">Стоимость — 10 кр. за анализ + генерация фото. Это в 20 раз дешевле дизайнера на фрилансе. Доступно на тарифе «Стандарт» и выше.</div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question">Для каких маркетплейсов работает?</div>
+                <div class="faq-answer">«Карточка под ключ» создаёт контент для Wildberries и Ozon. SEO-тексты оптимизируются под поисковые алгоритмы каждого маркетплейса отдельно. Фото — в универсальном формате 3:4.</div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question">Можно ли редактировать результат?</div>
+                <div class="faq-answer">Да. SEO-тексты можно скопировать и отредактировать как угодно. Фото можно доработать через инструмент «Внести правки» — изменить текст, цвета, элементы без фотошопа.</div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question">Сколько времени занимает создание одной карточки?</div>
+                <div class="faq-answer">Примерно 60 секунд от загрузки фото до получения готового набора текстов и фото. Анализ конкурентов и генерация всех элементов происходят параллельно.</div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">Нужны ли мне какие-то специальные навыки для использования?</div>
+                <div class="faq-answer">Нет. Всё максимально просто: загрузили фото → выбрали маркетплейс → получили готовую карточку. Никаких навыков дизайна или SEO не требуется. AI делает всё автоматически.</div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">Какой уровень уникальности текстов и фото?</div>
+                <div class="faq-answer">90%+ уникальности. AI анализирует вашу нишу и создает индивидуальную карточку для вашего товара, а не копирует конкурентов. Каждая карточка уникальна.</div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">Работает ли для узких ниш (электротехника, запчасти, редкие товары)?</div>
+                <div class="faq-answer">Да, работает на всех категориях WB/Ozon. AI обучена на 100k+ карточек разных категорий, от детских товаров до электроники и редких товаров.</div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">Что если результат мне не понравится или карточка не продает?</div>
+                <div class="faq-answer">Вы можете пересоздать карточку с другим подходом без дополнительной оплаты. Тариф включает неограниченные пересоздания. Если карточка не соответствует требованиям маркетплейса, мы переделаем её.</div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">Как быстро видны результаты после загрузки улучшенной карточки?</div>
+                <div class="faq-answer">Обычно улучшение CTR видно за 2-3 дня. Движение в топовые позиции занимает 1-2 недели при наличии хороших продаж. Алгоритм маркетплейсов учитывает несколько факторов.</div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- FINAL CTA -->
+<section class="final-cta">
+    <div class="container">
+        <h2>Создайте карточку под ключ</h2>
+        <p>Загрузите фото товара — AI проанализирует конкурентов, составит SEO-тексты и сгенерирует все фото для карточки.</p>
+        <div class="final-cta-buttons">
+            <button class="btn btn-light">Создать карточку под ключ</button>
+        </div>
+    </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+    <p>© 2026 Bitiy Pixel | Все права защищены | Политика конфиденциальности | Условия использования</p>
+</footer>
+
+</body>
+</html>

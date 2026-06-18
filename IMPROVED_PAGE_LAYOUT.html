@@ -1,0 +1,852 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Внести правки в карточку товара — AI-редактирование без фотошопа | Bitiy Pixel</title>
+    <meta name="description" content="AI-редактирование фото карточки товара. Опишите правку, выделите область кистью — AI внесёт изменения за секунды. Без фотошопа, для WB и Ozon.">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: #fff;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* ===== HERO SECTION ===== */
+        .hero {
+            background: linear-gradient(135deg, #c6d1ea 0%, #e8ecf7 100%);
+            padding: 80px 20px;
+            text-align: center;
+        }
+        
+        .hero h1 {
+            font-size: 48px;
+            font-weight: 700;
+            margin-bottom: 30px;
+            line-height: 1.2;
+            color: #1a1a1a;
+        }
+        
+        .hero .main-text {
+            font-size: 18px;
+            color: #555;
+            margin-bottom: 25px;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+            line-height: 1.7;
+        }
+        
+        .hero .brief-text {
+            font-size: 15px;
+            color: #666;
+            margin-bottom: 40px;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+            line-height: 1.7;
+            background: rgba(255, 255, 255, 0.6);
+            padding: 20px;
+            border-radius: 8px;
+        }
+        
+        .cta-group {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            margin-bottom: 0;
+            flex-wrap: wrap;
+        }
+        
+        .btn {
+            padding: 16px 40px;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+        }
+        
+        .btn-primary {
+            background: #0066cc;
+            color: white;
+        }
+        
+        .btn-primary:hover {
+            background: #0052a3;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(0, 102, 204, 0.3);
+        }
+        
+        .btn-secondary {
+            background: white;
+            color: #0066cc;
+            border: 2px solid #0066cc;
+        }
+        
+        .btn-secondary:hover {
+            background: #f5f9ff;
+        }
+        
+        /* ===== КАК РАБОТАЕТ (Combined with Video) ===== */
+        .how-section {
+            padding: 80px 20px;
+        }
+        
+        .how-section h2 {
+            font-size: 36px;
+            font-weight: 700;
+            margin-bottom: 60px;
+            text-align: center;
+            color: #1a1a1a;
+        }
+        
+        .how-layout {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: flex-start;
+            margin-bottom: 50px;
+        }
+        
+        .how-left {
+            background: #f5f7ff;
+            border-radius: 12px;
+            padding: 40px;
+            min-height: 450px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+        }
+        
+        .how-left-label {
+            font-size: 16px;
+            font-weight: 600;
+            color: #0066cc;
+            margin-bottom: 20px;
+        }
+        
+        .how-left-placeholder {
+            font-size: 14px;
+            color: #999;
+            margin-bottom: 20px;
+            line-height: 1.6;
+        }
+        
+        .how-left-subtitle {
+            font-size: 13px;
+            color: #999;
+            font-style: italic;
+        }
+        
+        .how-right {
+            display: flex;
+            flex-direction: column;
+            gap: 0;
+        }
+        
+        .questions-block {
+            margin-bottom: 40px;
+        }
+        
+        .question-item {
+            background: #f5f7ff;
+            padding: 20px;
+            margin-bottom: 15px;
+            border-radius: 8px;
+            border-left: 4px solid #0066cc;
+        }
+        
+        .question-item strong {
+            display: block;
+            color: #1a1a1a;
+            margin-bottom: 8px;
+            font-size: 15px;
+        }
+        
+        .question-item p {
+            color: #666;
+            font-size: 14px;
+            line-height: 1.5;
+        }
+        
+        .steps-block {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+        
+        .step {
+            background: white;
+            border-left: 4px solid #0066cc;
+            padding: 25px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+        }
+        
+        .step-number {
+            width: 40px;
+            height: 40px;
+            background: #0066cc;
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 18px;
+            margin-bottom: 12px;
+        }
+        
+        .step h3 {
+            font-size: 17px;
+            margin-bottom: 8px;
+            color: #1a1a1a;
+            font-weight: 600;
+        }
+        
+        .step p {
+            color: #666;
+            font-size: 14px;
+            line-height: 1.5;
+        }
+        
+        /* ===== ПРИМЕРЫ ===== */
+        .examples-section {
+            background: #f8f9fb;
+            padding: 80px 20px;
+        }
+        
+        .examples-section h2 {
+            font-size: 36px;
+            font-weight: 700;
+            margin-bottom: 50px;
+            text-align: center;
+            color: #1a1a1a;
+        }
+        
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            margin-bottom: 50px;
+        }
+        
+        .example-item {
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+        }
+        
+        .example-image {
+            width: 100%;
+            height: 200px;
+            background: #e0e0e0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 13px;
+            color: #999;
+            text-align: center;
+            padding: 20px;
+        }
+        
+        .example-label {
+            padding: 15px;
+            font-size: 14px;
+            color: #555;
+            text-align: center;
+            font-weight: 500;
+        }
+        
+        .cta-centered {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        
+        /* ===== СЦЕНАРИИ ===== */
+        .scenarios-section {
+            background: white;
+            padding: 80px 20px;
+        }
+        
+        .scenarios-section h2 {
+            font-size: 36px;
+            font-weight: 700;
+            margin-bottom: 50px;
+            text-align: center;
+            color: #1a1a1a;
+        }
+        
+        .scenarios-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-bottom: 50px;
+        }
+        
+        .scenario-card {
+            background: #f8f9fb;
+            padding: 40px;
+            border-radius: 12px;
+            border-left: 4px solid #0066cc;
+        }
+        
+        .scenario-icon {
+            font-size: 40px;
+            margin-bottom: 15px;
+        }
+        
+        .scenario-card h3 {
+            font-size: 18px;
+            margin-bottom: 12px;
+            color: #1a1a1a;
+            font-weight: 600;
+        }
+        
+        .scenario-card p {
+            color: #666;
+            margin-bottom: 18px;
+            font-size: 14px;
+            line-height: 1.5;
+        }
+        
+        .scenario-list {
+            list-style: none;
+        }
+        
+        .scenario-list li {
+            padding-left: 25px;
+            margin-bottom: 10px;
+            color: #555;
+            font-size: 14px;
+            position: relative;
+        }
+        
+        .scenario-list li:before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: #0066cc;
+            font-weight: bold;
+            font-size: 16px;
+        }
+        
+        /* ===== ТАРИФЫ ===== */
+        .pricing-section {
+            background: #f8f9fb;
+            padding: 80px 20px;
+        }
+        
+        .pricing-section h2 {
+            font-size: 36px;
+            font-weight: 700;
+            margin-bottom: 50px;
+            text-align: center;
+            color: #1a1a1a;
+        }
+        
+        .pricing-table-wrapper {
+            max-width: 900px;
+            margin: 0 auto 50px;
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+        }
+        
+        .pricing-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        
+        .pricing-table th {
+            background: #f8f9fb;
+            padding: 20px;
+            text-align: left;
+            font-weight: 600;
+            color: #1a1a1a;
+            border-bottom: 2px solid #eee;
+            font-size: 15px;
+        }
+        
+        .pricing-table td {
+            padding: 20px;
+            border-bottom: 1px solid #eee;
+            color: #666;
+            font-size: 14px;
+        }
+        
+        .pricing-table tr:last-child td {
+            border-bottom: none;
+        }
+        
+        /* ===== FAQ ===== */
+        .faq-section {
+            background: white;
+            padding: 80px 20px;
+        }
+        
+        .faq-section h2 {
+            font-size: 36px;
+            font-weight: 700;
+            margin-bottom: 50px;
+            text-align: center;
+            color: #1a1a1a;
+        }
+        
+        .faq-list {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        
+        .faq-item {
+            background: #f8f9fb;
+            margin-bottom: 20px;
+            border-radius: 8px;
+            padding: 25px;
+            border-left: 4px solid #0066cc;
+        }
+        
+        .faq-question {
+            font-weight: 600;
+            color: #1a1a1a;
+            font-size: 15px;
+            margin-bottom: 12px;
+        }
+        
+        .faq-answer {
+            color: #555;
+            font-size: 14px;
+            line-height: 1.6;
+        }
+        
+        /* ===== FINAL CTA ===== */
+        .final-cta {
+            background: linear-gradient(135deg, #c6d1ea 0%, #e8ecf7 100%);
+            padding: 80px 20px;
+            text-align: center;
+        }
+        
+        .final-cta h2 {
+            font-size: 40px;
+            font-weight: 700;
+            margin-bottom: 20px;
+            color: #1a1a1a;
+        }
+        
+        .final-cta p {
+            font-size: 18px;
+            color: #666;
+            margin-bottom: 30px;
+        }
+        
+        .final-cta .cta-group {
+            margin-bottom: 30px;
+        }
+        
+        .final-cta-note {
+            margin-top: 25px;
+            color: #999;
+            font-size: 13px;
+        }
+        
+        /* ===== FOOTER ===== */
+        footer {
+            background: #1a1a1a;
+            color: white;
+            padding: 40px 20px;
+            text-align: center;
+            font-size: 13px;
+        }
+        
+        footer p {
+            margin-bottom: 10px;
+        }
+        
+        footer a {
+            color: #ccc;
+            text-decoration: none;
+        }
+        
+        footer a:hover {
+            color: white;
+        }
+        
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 32px;
+            }
+            
+            .hero .main-text {
+                font-size: 16px;
+            }
+            
+            .how-layout {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+            
+            .cta-group {
+                flex-direction: column;
+            }
+            
+            .btn {
+                width: 100%;
+            }
+            
+            .final-cta h2 {
+                font-size: 28px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- ===== HERO SECTION ===== -->
+    <section class="hero">
+        <div class="container">
+            <h1>Внести правки в карточку товара</h1>
+            
+            <p class="main-text">
+                Не нравится результат генерации? Не нужно начинать заново. Загрузите фото, опишите что изменить, при необходимости выделите область кистью или загрузите фото-референс — AI внесёт точечные правки за секунды. Без фотошопа и навыков дизайна.
+            </p>
+            
+            <p class="brief-text">
+                <strong>Кратко:</strong> «Внести правки» (inpaint) — это AI-редактор для точечных изменений в фото. Работает как ластик + генератор: выделяете область кистью, описываете что нужно изменить — AI заменяет выделенную часть. Можно загрузить фото-референс. Стоимость — от 19 ₽. Доступно на тарифе «Стандарт» и выше.
+            </p>
+            
+            <div class="cta-group">
+                <button class="btn btn-primary">Попробовать сейчас</button>
+                <button class="btn btn-secondary">Смотреть примеры</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== КАК РАБОТАЕТ (Combined with Video) ===== -->
+    <section class="how-section">
+        <div class="container">
+            <h2>Как работает AI-редактор</h2>
+            
+            <div class="how-layout">
+                <!-- LEFT: VIDEO PLACEHOLDER -->
+                <div class="how-left">
+                    <div class="how-left-label">📹 ВИДЕО РЕДАКТОРА</div>
+                    <div class="how-left-placeholder">
+                        [МЕСТО ДЛЯ ВИДЕО/ГИФКИ/КАРТИНКИ]<br><br>
+                        Здесь разместить видео-демонстрацию (30-60 сек) или гифку, где показано как работает редактор:<br>
+                        1. Загрузить фото товара<br>
+                        2. Описать что изменить<br>
+                        3. AI применяет правки за 30-60 сек<br>
+                        4. Получить готовый результат
+                    </div>
+                    <div class="how-left-subtitle">Видеоурок: 30-60 сек</div>
+                </div>
+                
+                <!-- RIGHT: QUESTIONS + STEPS -->
+                <div class="how-right">
+                    <!-- QUESTIONS -->
+                    <div class="questions-block">
+                        <div class="question-item">
+                            <strong>Если мне нравится стиль, но не нравится какой-то элемент, могу ли я его исправить?</strong>
+                            <p>Да, выделите область кистью, опишите что менять — AI изменит только эту часть фото.</p>
+                        </div>
+                        
+                        <div class="question-item">
+                            <strong>Нужны ли навыки Photoshop?</strong>
+                            <p>Нет. Просто загрузите фото и напишите что изменить обычным русским языком.</p>
+                        </div>
+                        
+                        <div class="question-item">
+                            <strong>Нужно ли понимание?</strong>
+                            <p>Нет. Инструмент интуитивный. Даже новичок поймёт как им пользоваться за 30 секунд.</p>
+                        </div>
+                    </div>
+                    
+                    <!-- STEPS -->
+                    <div class="steps-block">
+                        <div class="step">
+                            <div class="step-number">1</div>
+                            <h3>Загрузите фото</h3>
+                            <p>Любое изображение — результат генерации, из фотошопа, скачанное с маркетплейса или другого сервиса</p>
+                        </div>
+                        
+                        <div class="step">
+                            <div class="step-number">2</div>
+                            <h3>Опишите правку</h3>
+                            <p>Текстом на русском: "замени фон на белый", "убери текст", "добавь плашку с размерами", "сделай ярче"</p>
+                        </div>
+                        
+                        <div class="step">
+                            <div class="step-number">3</div>
+                            <h3>Получите результат</h3>
+                            <p>За 30-60 секунд AI применит правки. Не нравится? Загрузите результат снова и уточните описание</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="cta-centered">
+                <button class="btn btn-primary">Начать редактировать</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== ПРИМЕРЫ ===== -->
+    <section class="examples-section">
+        <div class="container">
+            <h2>Примеры редактирования</h2>
+            
+            <div class="gallery">
+                <div class="example-item">
+                    <div class="example-image">До/После: Замена фона на белый</div>
+                    <div class="example-label">Чистый белый фон для маркетплейса</div>
+                </div>
+                
+                <div class="example-item">
+                    <div class="example-image">До/После: Добавление текста</div>
+                    <div class="example-label">Плашка с размерами и характеристиками</div>
+                </div>
+                
+                <div class="example-item">
+                    <div class="example-image">До/После: Изменение цвета</div>
+                    <div class="example-label">Один товар в разных расцветках</div>
+                </div>
+                
+                <div class="example-item">
+                    <div class="example-image">До/После: Ретушь</div>
+                    <div class="example-label">Удаление дефектов и лишних элементов</div>
+                </div>
+                
+                <div class="example-item">
+                    <div class="example-image">До/После: Светокоррекция</div>
+                    <div class="example-label">Фото стало ярче и привлекательнее</div>
+                </div>
+                
+                <div class="example-item">
+                    <div class="example-image">До/После: Комбо правка</div>
+                    <div class="example-label">Фон + текст + цвет — всё за одну правку</div>
+                </div>
+            </div>
+            
+            <div class="cta-centered">
+                <button class="btn btn-primary">Редактировать свои фото</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== СЦЕНАРИИ ===== -->
+    <section class="scenarios-section">
+        <div class="container">
+            <h2>Три сценария использования</h2>
+            
+            <div class="scenarios-grid">
+                <div class="scenario-card">
+                    <div class="scenario-icon">🆕</div>
+                    <h3>Новый товар на маркетплейс</h3>
+                    <p>Пришло фото товара, нужно быстро выставить на WB/Ozon</p>
+                    <ul class="scenario-list">
+                        <li>Загружаешь фото в редактор</li>
+                        <li>Просишь "белый фон" и "добавь размеры"</li>
+                        <li>Получаешь результат за 60 сек</li>
+                        <li>Загружаешь на маркетплейс</li>
+                    </ul>
+                </div>
+                
+                <div class="scenario-card">
+                    <div class="scenario-icon">📉</div>
+                    <h3>Продажи упали — нужна оптимизация</h3>
+                    <p>Старая карточка не привлекает внимание покупателей</p>
+                    <ul class="scenario-list">
+                        <li>Меняешь скучный фон на яркий</li>
+                        <li>Делаешь цвета более насыщенными</li>
+                        <li>Добавляешь выделяющиеся плашки</li>
+                        <li>CTR растёт на 20-40%</li>
+                    </ul>
+                </div>
+                
+                <div class="scenario-card">
+                    <div class="scenario-icon">⚡</div>
+                    <h3>Срочно — нет времени на дизайнера</h3>
+                    <p>Нужно срочно исправить ошибку в карточке</p>
+                    <ul class="scenario-list">
+                        <li>Загружаешь фото (10 сек)</li>
+                        <li>Описываешь что менять (20 сек)</li>
+                        <li>Получаешь результат (60 сек)</li>
+                        <li>Всё готово! Без очередей и ожиданий</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="cta-centered">
+                <button class="btn btn-primary">Попробовать сейчас</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== ТАРИФЫ ===== -->
+    <section class="pricing-section">
+        <div class="container">
+            <h2>Прозрачные цены. Нет скрытых комиссий</h2>
+            
+            <div class="pricing-table-wrapper">
+                <table class="pricing-table">
+                    <thead>
+                        <tr>
+                            <th>Параметр</th>
+                            <th>Стандарт</th>
+                            <th>Профи</th>
+                            <th>Бизнес</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Цена за одну правку</strong></td>
+                            <td>19 ₽</td>
+                            <td>29 ₽</td>
+                            <td>По договору</td>
+                        </tr>
+                        <tr>
+                            <td><strong>На сумму в месяц</strong></td>
+                            <td>От 500 ₽</td>
+                            <td>От 2000 ₽</td>
+                            <td>Неограниченно</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Скорость обработки</strong></td>
+                            <td>30-60 сек</td>
+                            <td>30-60 сек</td>
+                            <td>Приоритет</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Поддержка</strong></td>
+                            <td>Чат</td>
+                            <td>Чат + Email</td>
+                            <td>Личный менеджер</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Подходит для</strong></td>
+                            <td>Новичков</td>
+                            <td>Активных селлеров</td>
+                            <td>Больших объёмов</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            
+            <div class="cta-centered">
+                <button class="btn btn-primary">Начать бесплатно на 7 дней</button>
+                <p style="margin-top: 15px; color: #666; font-size: 14px;">Никаких данных карты не требуется. Отмена в один клик.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== FAQ ===== -->
+    <section class="faq-section">
+        <div class="container">
+            <h2>Часто задаваемые вопросы</h2>
+            
+            <div class="faq-list">
+                <div class="faq-item">
+                    <div class="faq-question">❓ Может ли результат выглядеть как работа профессионала?</div>
+                    <div class="faq-answer">Да. Наш инструмент обучен на миллионах профессиональных фотографий товаров с маркетплейсов. Результат выглядит как работа профессионального фотографа или дизайнера. В 95% случаев первый результат идеален. Смотрите примеры выше — это работы реальных селлеров.</div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">❓ Как начать, если я не разбираюсь в дизайне?</div>
+                    <div class="faq-answer">Максимально просто: 1. Загрузите фото товара. 2. Напишите что вы хотите изменить простым русским языком (например: "добавь плашку с размерами" или "измени цвет на красный"). 3. Нажмите кнопку. 4. Получите результат за 30-60 секунд. Никаких навыков не требуется!</div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">❓ Какой тариф выбрать именно мне?</div>
+                    <div class="faq-answer">Если у вас 1-10 товаров в месяц — тариф "Стандарт" (от 19₽ за правку). Если 10-100 товаров — тариф "Профи" (от 29₽, больше экономия). Если 100+ товаров — B2B тариф для вас. Можно начать с Стандарта и поменять тариф без штрафов.</div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">❓ А что если результат не понравится?</div>
+                    <div class="faq-answer">Легко исправить! Вы можете: 1. Загрузить результат снова и попросить уточнение (например: "сделай текст крупнее"). 2. Вернуться к оригиналу и попробовать другой вариант. 3. Если совсем не подходит — оригинал остаётся, вернёте его на маркетплейс. В 95% случаев первый результат идеален, но 2-3 доработки дают совершенство.</div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">❓ Сколько времени займет одна правка?</div>
+                    <div class="faq-answer">Обычно 30-60 секунд (загрузка + описание + обработка AI). Редкие сложные правки могут занять до 2 минут. Всё равно это в 100 раз быстрее, чем фотошоп или дизайнер.</div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">❓ Какие виды правок можно сделать?</div>
+                    <div class="faq-answer">Замена фона (белый, цветной, тематический). Изменение цвета товара (показать все расцветки). Добавление текста (размеры, акции, характеристики). Добавление/удаление элементов. Коррекция света и яркости. Ретушь дефектов. По сути — любая точечная правка в фото.</div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">❓ Работает ли это для всех видов товаров?</div>
+                    <div class="faq-answer">Практически да. Нейросеть обучена на одежде, электронике, интерьере, косметике, продукции для дома и многом другом. Единственное исключение — очень редкие товары, но даже для них часто работает.</div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">❓ Есть ли интеграция с Wildberries и Ozon?</div>
+                    <div class="faq-answer">Прямой интеграции нет, но просто: 1. Скачайте фото у нас. 2. Откройте карточку товара на маркетплейсе. 3. Загрузите новое фото вместо старого. Занимает 1-2 минуты. В планах — прямая интеграция с маркетплейсами (Q3 2026).</div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">❓ Можно ли редактировать фото не из Bitiy Pixel?</div>
+                    <div class="faq-answer">Да! Загрузите любое фото — из фотошопа, скачанное с маркетплейса, из другого сервиса. AI внесёт правки в любое изображение.</div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">❓ Обязательно ли выделять область кистью?</div>
+                    <div class="faq-answer">Нет. Кисть опциональна. Если правка глобальная ("сделай ярче", "замени весь фон"), достаточно описания. Кисть помогает для точечных изменений — AI заменит только закрашенную область.</div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">❓ Можно ли внести несколько правок подряд?</div>
+                    <div class="faq-answer">Да! Скачайте результат первой правки, загрузите его снова для следующей. Так можно итеративно доводить изображение до идеала. Много людей делают 2-3 правки для одного фото.</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== FINAL CTA ===== -->
+    <section class="final-cta">
+        <div class="container">
+            <h2>Начните редактировать карточки за 1 минуту с помощью AI</h2>
+            <p>Первые 7 дней — бесплатно. Никаких данных карты не требуется.</p>
+            
+            <div class="cta-group">
+                <button class="btn btn-primary">Попробовать бесплатно</button>
+                <button class="btn btn-secondary">Посмотреть видео</button>
+            </div>
+            
+            <div class="final-cta-note">
+                100,000+ правок сделано • Используют селлеры WB, Ozon, Яндекс Маркета
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== FOOTER ===== -->
+    <footer>
+        <div class="container">
+            <p>© 2026 Bitiy Pixel • <a href="#">Условия использования</a> • <a href="#">Политика конфиденциальности</a></p>
+            <p>hello@bitiypixel.ru • Telegram: @bitiypixel</p>
+        </div>
+    </footer>
+</body>
+</html>
